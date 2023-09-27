@@ -1,4 +1,4 @@
-import { I } from './styled';
+import { S } from './styled';
 import { useTranslation } from 'react-i18next';
 import tennisImage from 'assets/image/main/tennis.png';
 import golfImage from 'assets/image/main/golf.png';
@@ -12,10 +12,10 @@ const Intro = () => {
   const { i18n } = useTranslation();
 
   return (
-    <I.Wrap>
-      <I.TextWrap>
+    <S.Wrap>
+      <S.TextWrap>
         {i18n.language === 'kr' ? (
-          <I.Image
+          <S.Image
             top='15rem'
             left='45.875rem'
             width='28.25rem'
@@ -24,7 +24,7 @@ const Intro = () => {
             zIndex={5}
           />
         ) : (
-          <I.Image
+          <S.Image
             top='13.75rem'
             left='40rem'
             width='40rem'
@@ -33,34 +33,34 @@ const Intro = () => {
             zIndex={5}
           />
         )}
-      </I.TextWrap>
-      <I.Image top='25rem' left='9rem' width='20rem' height='21rem' imageUrl={tennisImage} />
-      <I.Image top='9rem' left='19rem' width='24rem' height='24rem' imageUrl={golfImage} />
-      <I.Image
-        bottom={0}
+      </S.TextWrap>
+      <S.Image top='25rem' left='9rem' width='20rem' height='21rem' imageUrl={tennisImage} />
+      <S.Image top='-11rem' left='19rem' width='24rem' height='24rem' imageUrl={golfImage} />
+      <S.Image
+        top='-30.5rem'
         left='32rem'
         width='60rem'
         height='40.5rem'
         imageUrl={soccerImage}
         zIndex={1}
       />
-      <I.Image
-        top='9rem'
+      <S.Image
+        top='-80rem'
         left='73rem'
         width='23.75rem'
         height='26rem'
         imageUrl={martialArtsImage}
         zIndex={2}
       />
-      <I.Image
-        top='23rem'
+      <S.Image
+        top='-92rem'
         left='87rem'
         width='24rem'
         height='24rem'
         imageUrl={basketballImage}
         zIndex={1}
       />
-    </I.Wrap>
+    </S.Wrap>
   );
 };
 

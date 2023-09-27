@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { Menu } from './menu';
-import Intro from './intro/Intro';
+import { Intro } from './intro';
 
 const Main = () => {
   return (

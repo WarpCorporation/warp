@@ -1,5 +1,5 @@
 import { Button as B, styled } from '@mui/material';
-import { palette } from 'constants/';
+import { palette, screen } from 'constants/';
 import logo from 'assets/image/common/logo.png';
 import whiteLine from 'assets/image/common/white-line.png';
 
@@ -11,7 +11,9 @@ export const Wrap = styled('div')({
   alignItems: 'center',
   padding: '2rem 3rem',
   width: 'calc(100% - 6rem)',
+  minWidth: `calc(${screen.minWidth} - 6rem)`,
   height: '3rem',
+  zIndex: 5,
 });
 
 export const Logo = styled('div')({
@@ -34,6 +36,7 @@ export const ButtonsGroup = styled('div')({
   flexGrow: 1,
   alignItems: 'center',
   justifyContent: 'space-between',
+  minWidth: '46.5rem',
 });
 
 export const Button = styled(B)({

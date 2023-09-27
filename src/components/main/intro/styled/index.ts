@@ -1,1 +1,1 @@
-export * as I from './intro';
+export * as S from './styled';

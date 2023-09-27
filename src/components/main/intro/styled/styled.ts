@@ -1,8 +1,9 @@
 import { styled } from '@mui/material';
-import { palette } from 'constants/';
+import { palette, screen } from 'constants/';
 
 export const Wrap = styled('div')({
   width: '100%',
+  minWidth: screen.minWidth,
   height: '100%',
   backgroundColor: palette.black,
 });
@@ -18,13 +19,11 @@ export const Text = styled('span')({});
 
 export const Image = styled('div', {
   shouldForwardProp: (prop: string) =>
-    !['top', 'bottom', 'left', 'right', 'width', 'height', 'imageUrl', 'zIndex'].includes(prop),
-})<ImagePropsType>(({ top, bottom, left, right, width, height, imageUrl, zIndex }) => ({
-  position: 'absolute',
+    !['top', 'left', 'width', 'height', 'imageUrl', 'zIndex'].includes(prop),
+})<ImagePropsType>(({ top, left, width, height, imageUrl, zIndex }) => ({
+  position: 'relative',
   top,
-  bottom,
   left,
-  right,
   width,
   height,
   backgroundImage: `url(${imageUrl})`,
@@ -34,9 +33,7 @@ export const Image = styled('div', {
 
 type ImagePropsType = {
   top?: string | number;
-  bottom?: string | number;
   left?: string | number;
-  right?: string | number;
   width: string | number;
   height: string | number;
   imageUrl: string;
