@@ -1,5 +1,5 @@
 import { styled } from '@mui/material';
-import warpButton from 'assets/image/warp-button.png';
+import warpButton from 'assets/image/intro/warp-button.png';
 import { palette } from 'constants/';
 
 export const Wrap = styled('div')({

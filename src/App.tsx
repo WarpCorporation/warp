@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { styled } from '@mui/material';
 import { Intro } from 'components/intro';
+import { Main } from 'components/main';
+import './language/i18n';
 
 function App() {
   return (
@@ -8,6 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Intro />} />
+          <Route path='/main' element={<Main />} />
         </Routes>
       </BrowserRouter>
     </Wrap>

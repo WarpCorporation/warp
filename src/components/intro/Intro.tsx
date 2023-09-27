@@ -1,14 +1,24 @@
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import * as S from './styled';
 import introBg from 'assets/background/intro-bg.png';
-import { i18n } from 'language/i18n';
 
 const Intro = () => {
+  const navigate = useNavigate();
+  const { i18n } = useTranslation();
+
+  const navigateToMain = () => {
+    navigate('/main');
+  };
+
   const handleKoreanClick = () => {
-    i18n.locale = 'kr';
+    i18n.changeLanguage('kr');
+    navigateToMain();
   };
 
   const handleEnglishClick = () => {
-    i18n.locale = 'en';
+    i18n.changeLanguage('en');
+    navigateToMain();
   };
 
   return (
