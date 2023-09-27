@@ -43,4 +43,6 @@ export const LanguageButton = styled('div')({
   backgroundSize: 'cover',
   transition: '200ms',
   cursor: 'pointer',
+  '& span': { transition: '250ms' },
+  '&:hover': { '& span': { transform: 'scale(1.2)' } },
 });

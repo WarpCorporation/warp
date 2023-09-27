@@ -28,6 +28,7 @@ code {
     url('./Gotham-Black/Gotham-Black.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
+  unicode-range: U+00-7F;
 }
 
 @font-face {
@@ -38,6 +39,7 @@ code {
     url('./Gotham-Bold/Gotham-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
+  unicode-range: U+00-7F;
 }
 
 @font-face {
@@ -48,6 +50,7 @@ code {
     url('./Gotham-Book/Gotham-Book.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  unicode-range: U+00-7F;
 }
 
 @font-face {
@@ -58,6 +61,7 @@ code {
     url('./Gotham-Light/Gotham-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
+  unicode-range: U+00-7F;
 }
 
 @font-face {
@@ -68,6 +72,7 @@ code {
     url('./Gotham-Medium/Gotham-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
+  unicode-range: U+00-7F;
 }
 
 @font-face {
@@ -78,6 +83,7 @@ code {
     url('./Gotham-Thin/Gotham-Thin.ttf') format('truetype');
   font-weight: 100;
   font-style: normal;
+  unicode-range: U+00-7F;
 }
 
 @font-face {
@@ -88,6 +94,7 @@ code {
     url('./Gotham-Ultra/Gotham-Ultra.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  unicode-range: U+00-7F;
 }
 
 @font-face {
@@ -98,4 +105,5 @@ code {
     url('./Gotham-XLight/Gotham-XLight.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
+  unicode-range: U+00-7F;
 }
