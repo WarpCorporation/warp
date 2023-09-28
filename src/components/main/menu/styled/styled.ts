@@ -24,6 +24,7 @@ export const Logo = styled('div')({
   height: '2rem',
   backgroundImage: `url(${logo})`,
   backgroundSize: 'cover',
+  cursor: 'pointer',
 });
 
 export const Line = styled('div')({

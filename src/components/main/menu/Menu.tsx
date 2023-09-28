@@ -6,13 +6,17 @@ const Menu = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
+  const handleLogoClick = () => {
+    navigate('/main');
+  };
+
   const handleBrancStoryClick = () => {
     navigate('/main/brand-story');
   };
 
   return (
     <S.Wrap backgroundColor={getBackgroundColor(pathname)}>
-      <S.Logo />
+      <S.Logo onClick={handleLogoClick} />
       <S.Line />
       <S.ButtonsGroup>
         <S.Button variant='text' onClick={handleBrancStoryClick}>
