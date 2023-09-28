@@ -1,7 +1,6 @@
-import { Button as B, styled } from '@mui/material';
+import { Button as B, Divider, styled } from '@mui/material';
 import { palette, screen } from 'constants/';
 import logo from 'assets/image/common/logo-white.png';
-import whiteLine from 'assets/image/common/white-line.png';
 
 export const Wrap = styled('div', {
   shouldForwardProp: (prop: string) => prop !== 'backgroundColor',
@@ -28,12 +27,15 @@ export const Logo = styled('div')({
   cursor: 'pointer',
 });
 
-export const Line = styled('div')({
+export const Line = styled(Divider)({
+  border: '1px solid',
+  borderImageSource: `linear-gradient(to left, ${palette.white}, rgba(255, 255, 255, 25%))`,
+  borderImageSlice: 1,
   marginRight: '3.5rem',
   width: '56rem',
-  height: '0.1rem',
-  backgroundImage: `url(${whiteLine})`,
-  backgroundSize: 'cover',
+  height: 0,
+  color: palette.white,
+  opacity: 0.5,
 });
 
 export const ButtonsGroup = styled('div')({
