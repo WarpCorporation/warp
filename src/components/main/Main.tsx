@@ -5,6 +5,7 @@ import { Menu } from './menu';
 import { Intro } from './intro';
 import { BrandStory } from './brandStory';
 import { JackpotFc } from './jackpotFc';
+import { Leadership } from './leadership';
 
 const Main = () => {
   const { i18n } = useTranslation();
@@ -23,6 +24,7 @@ const Main = () => {
         <Route path='/' element={<Intro />} />
         <Route path='/brand-story' element={<BrandStory />} />
         <Route path='/jackpot-fc' element={<JackpotFc />} />
+        <Route path='/leadership' element={<Leadership />} />
       </Routes>
     </>
   );

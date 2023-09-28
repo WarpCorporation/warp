@@ -1,10 +1,11 @@
 import { useNavigate, useLocation } from 'react-router-dom';
-import { getBackgroundColor } from 'util/';
+import { getBackgroundColor, getMenuButtonColor } from 'util/';
 import { S } from './styled';
 
 const Menu = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const hoverColor = getMenuButtonColor(pathname);
 
   const handleLogoClick = () => {
     navigate('/main');
@@ -18,20 +19,30 @@ const Menu = () => {
     navigate('/main/jackpot-fc');
   };
 
+  const handleLeadershipClick = () => {
+    navigate('/main/leadership');
+  };
+
   return (
     <S.Wrap backgroundColor={getBackgroundColor(pathname)}>
       <S.Logo onClick={handleLogoClick} />
       <S.Line />
       <S.ButtonsGroup>
-        <S.Button variant='text' onClick={handleBrandStoryClick}>
+        <S.Button variant='text' onClick={handleBrandStoryClick} hoverColor={hoverColor}>
           BRAND STORY
         </S.Button>
-        <S.Button variant='text' onClick={handleJackpotFcClick}>
+        <S.Button variant='text' onClick={handleJackpotFcClick} hoverColor={hoverColor}>
           JACKPOT FC
         </S.Button>
-        <S.Button variant='text'>LEADERSHIP</S.Button>
-        <S.Button variant='text'>PARTNERSHIP</S.Button>
-        <S.Button variant='text'>PRESS · MEDIA</S.Button>
+        <S.Button variant='text' onClick={handleLeadershipClick} hoverColor={hoverColor}>
+          LEADERSHIP
+        </S.Button>
+        <S.Button variant='text' hoverColor={hoverColor}>
+          PARTNERSHIP
+        </S.Button>
+        <S.Button variant='text' hoverColor={hoverColor}>
+          PRESS · MEDIA
+        </S.Button>
       </S.ButtonsGroup>
     </S.Wrap>
   );

@@ -7,6 +7,7 @@ const getBackgroundColor = (pathname: string) => {
     main: palette.black,
     'brand-story': palette.black,
     'jackpot-fc': palette.black,
+    leadership: 'transparent',
   };
   return backgroundColorMap[last(pathname.split('/')) ?? '/'] ?? palette.black;
 };

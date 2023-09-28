@@ -3,4 +3,5 @@ export const palette = {
   black: '#000',
   dark: 'rgb(35, 31, 32)',
   magenta: 'rgb(226, 0, 127)',
+  'light-magenta': 'rgba(226, 0, 127, 5%)',
 };
