@@ -2,16 +2,18 @@ import { Divider as D, styled } from '@mui/material';
 import { palette } from 'constants/';
 import logo from 'assets/image/common/logo-black.png';
 
-export const TextWrap = styled('div')({
+export const TextWrap = styled('div', {
+  shouldForwardProp: (prop: string) => prop !== 'isKorean',
+})<{ isKorean: boolean }>(({ isKorean }) => ({
   position: 'relative',
-  top: '-47.5rem',
+  top: `${isKorean ? -80 : -85}%`,
   left: '16rem',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   width: '37.5rem',
   maxHeight: '85%',
-});
+}));
 
 export const Title = styled('span')({
   color: palette.magenta,
@@ -27,7 +29,7 @@ export const Divider = styled(D)({
 export const Content = styled('p')({
   margin: '1.5% 0',
   fontSize: '1rem',
-  fontWeight: 300,
+  fontWeight: 500,
   lineHeight: '1.25rem',
   whiteSpace: 'pre',
   textAlign: 'center',
