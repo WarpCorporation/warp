@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Menu } from './menu';
 import { Intro } from './intro';
 import { BrandStory } from './brandStory';
+import { JackpotFc } from './jackpotFc';
 
 const Main = () => {
   const { i18n } = useTranslation();
@@ -21,6 +22,7 @@ const Main = () => {
       <Routes>
         <Route path='/' element={<Intro />} />
         <Route path='/brand-story' element={<BrandStory />} />
+        <Route path='/jackpot-fc' element={<JackpotFc />} />
       </Routes>
     </>
   );

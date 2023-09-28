@@ -21,6 +21,7 @@ export const Wrap = styled('div', {
 
 export const Logo = styled('div')({
   width: '8rem',
+  minWidth: '8rem',
   height: '2rem',
   backgroundImage: `url(${logo})`,
   backgroundSize: 'cover',

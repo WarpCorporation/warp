@@ -10,8 +10,12 @@ const Menu = () => {
     navigate('/main');
   };
 
-  const handleBrancStoryClick = () => {
+  const handleBrandStoryClick = () => {
     navigate('/main/brand-story');
+  };
+
+  const handleJackpotFcClick = () => {
+    navigate('/main/jackpot-fc');
   };
 
   return (
@@ -19,10 +23,12 @@ const Menu = () => {
       <S.Logo onClick={handleLogoClick} />
       <S.Line />
       <S.ButtonsGroup>
-        <S.Button variant='text' onClick={handleBrancStoryClick}>
+        <S.Button variant='text' onClick={handleBrandStoryClick}>
           BRAND STORY
         </S.Button>
-        <S.Button variant='text'>JACKPOT FC</S.Button>
+        <S.Button variant='text' onClick={handleJackpotFcClick}>
+          JACKPOT FC
+        </S.Button>
         <S.Button variant='text'>LEADERSHIP</S.Button>
         <S.Button variant='text'>PARTNERSHIP</S.Button>
         <S.Button variant='text'>PRESS · MEDIA</S.Button>
