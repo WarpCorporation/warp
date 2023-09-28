@@ -1,6 +1,6 @@
 import { Button as B, styled } from '@mui/material';
 import { palette, screen } from 'constants/';
-import logo from 'assets/image/common/logo.png';
+import logo from 'assets/image/common/logo-white.png';
 import whiteLine from 'assets/image/common/white-line.png';
 
 export const Wrap = styled('div', {

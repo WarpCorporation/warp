@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import * as S from './styled';
-import introBg from 'assets/background/intro-bg.png';
+import { CSC } from 'components/common/styled';
+import { S } from './styled';
+import introBg from 'assets/background/intro/intro-bg.png';
 
 const Intro = () => {
   const navigate = useNavigate();
@@ -22,8 +23,8 @@ const Intro = () => {
   };
 
   return (
-    <S.Wrap>
-      <S.Background src={introBg} alt='intro-bg' />
+    <CSC.PageWrap>
+      <CSC.Background src={introBg} alt='intro-bg' />
       <S.ButtonsGroup>
         <S.LanguageButton onClick={handleKoreanClick}>
           <span>KOR</span>
@@ -32,7 +33,7 @@ const Intro = () => {
           <span>ENG</span>
         </S.LanguageButton>
       </S.ButtonsGroup>
-    </S.Wrap>
+    </CSC.PageWrap>
   );
 };
 

@@ -2,18 +2,6 @@ import { styled } from '@mui/material';
 import warpButton from 'assets/image/intro/warp-button.png';
 import { palette } from 'constants/';
 
-export const Wrap = styled('div')({
-  width: '100%',
-  height: '100%',
-});
-
-export const Background = styled('img')({
-  width: '100%',
-  height: '100%',
-  zIndex: 1,
-  overflow: 'hidden',
-});
-
 export const ButtonsGroup = styled('div')({
   position: 'absolute',
   left: 0,
