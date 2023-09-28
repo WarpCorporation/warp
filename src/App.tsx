@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { styled } from '@mui/material';
+import { GlobalStyles, styled } from '@mui/material';
 import { Wrap } from 'components/common';
 import { Intro } from 'components/intro';
 import { Main } from 'components/main';
-import { screen } from 'constants/';
+import { palette, screen } from 'constants/';
 import './language/i18n';
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
     <BrowserRouter>
       <Wrap>
         <Content>
+          <GlobalStyles styles={scrollbarDesign} />
           <Routes>
             <Route path='/' element={<Intro />} />
             <Route path='/main/*' element={<Main />} />
@@ -30,3 +31,20 @@ const Content = styled('div')({
   height: '100%',
   '& img': { minWidth: screen.minWidth, maxWidth: screen.maxWidth },
 });
+
+const scrollbarDesign = {
+  '&::-webkit-scrollbar': {
+    width: '0.5rem',
+  },
+  '&::-webkit-scrollbar-thumb': {
+    backgroundColor: palette.dark,
+    borderRadius: '0.5rem',
+    backgroundClip: 'padding-box',
+    border: '0.125rem solid transparent',
+  },
+
+  '&::-webkit-scrollbar-track': {
+    backgroundColor: 'grey',
+    boxShadow: `inset 0px 0px 0.5rem ${palette.white}`,
+  },
+};
