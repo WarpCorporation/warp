@@ -1,34 +1,27 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { styled } from '@mui/material';
+import { Wrap } from 'components/common';
 import { Intro } from 'components/intro';
 import { Main } from 'components/main';
-import { palette, screen } from 'constants/';
+import { screen } from 'constants/';
 import './language/i18n';
 
 function App() {
   return (
-    <Wrap>
-      <Content>
-        <BrowserRouter>
+    <BrowserRouter>
+      <Wrap>
+        <Content>
           <Routes>
             <Route path='/' element={<Intro />} />
             <Route path='/main/*' element={<Main />} />
           </Routes>
-        </BrowserRouter>
-      </Content>
-    </Wrap>
+        </Content>
+      </Wrap>
+    </BrowserRouter>
   );
 }
 
 export default App;
-
-const Wrap = styled('div')({
-  display: 'flex',
-  justifyContent: 'center',
-  width: '100%',
-  height: '100%',
-  backgroundColor: palette.black,
-});
 
 const Content = styled('div')({
   width: '100%',
