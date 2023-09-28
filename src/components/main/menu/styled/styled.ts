@@ -3,7 +3,9 @@ import { palette, screen } from 'constants/';
 import logo from 'assets/image/common/logo.png';
 import whiteLine from 'assets/image/common/white-line.png';
 
-export const Wrap = styled('div')({
+export const Wrap = styled('div', {
+  shouldForwardProp: (prop: string) => prop !== 'backgroundColor',
+})<{ backgroundColor: string }>(({ backgroundColor }) => ({
   position: 'absolute',
   top: 0,
   left: 0,
@@ -13,8 +15,9 @@ export const Wrap = styled('div')({
   width: 'calc(100% - 6rem)',
   minWidth: `calc(${screen.minWidth} - 6rem)`,
   height: '3rem',
+  backgroundColor,
   zIndex: 5,
-});
+}));
 
 export const Logo = styled('div')({
   width: '8rem',
