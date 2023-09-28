@@ -14,11 +14,13 @@ const Intro = () => {
 
   const handleKoreanClick = () => {
     i18n.changeLanguage('kr');
+    sessionStorage.setItem('@warp_language', 'kr');
     navigateToMain();
   };
 
   const handleEnglishClick = () => {
     i18n.changeLanguage('en');
+    sessionStorage.setItem('@warp_language', 'en');
     navigateToMain();
   };
 
