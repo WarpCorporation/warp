@@ -23,6 +23,10 @@ const Menu = () => {
     navigate('/main/leadership');
   };
 
+  const handlePartnershipClick = () => {
+    navigate('/main/partnership');
+  };
+
   return (
     <S.Wrap backgroundColor={getBackgroundColor(pathname)}>
       <S.Logo onClick={handleLogoClick} />
@@ -37,7 +41,7 @@ const Menu = () => {
         <S.Button variant='text' onClick={handleLeadershipClick} hoverColor={hoverColor}>
           LEADERSHIP
         </S.Button>
-        <S.Button variant='text' hoverColor={hoverColor}>
+        <S.Button variant='text' onClick={handlePartnershipClick} hoverColor={hoverColor}>
           PARTNERSHIP
         </S.Button>
         <S.Button variant='text' hoverColor={hoverColor}>

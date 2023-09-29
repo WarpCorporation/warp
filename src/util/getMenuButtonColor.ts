@@ -8,6 +8,7 @@ const getMenuButtonColor = (pathname: string) => {
     'brand-story': palette.magenta,
     'jackpot-fc': palette.magenta,
     leadership: palette.white,
+    partnership: palette.white,
   };
   return colorMap[last(pathname.split('/')) ?? '/'] ?? palette.black;
 };
