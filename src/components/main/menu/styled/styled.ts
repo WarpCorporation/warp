@@ -7,13 +7,12 @@ export const Wrap = styled('div', {
 })<{ backgroundColor: string }>(({ backgroundColor }) => ({
   position: 'absolute',
   top: 0,
-  left: `calc((100vw - ${screen.maxWidth}) / 2)`,
+  left: 0,
   display: 'flex',
   alignItems: 'center',
   padding: '2rem 3rem',
   width: 'calc(100% - 6rem)',
-  maxWidth: screen.maxWidth,
-  minWidth: `calc(${screen.minWidth} - 6rem)`,
+  minWidth: screen.minWidth,
   height: '3rem',
   backgroundColor,
   zIndex: 5,
@@ -29,11 +28,11 @@ export const Logo = styled('div')({
 });
 
 export const Line = styled(Divider)({
+  flexGrow: 1,
   border: '1px solid',
   borderImageSource: `linear-gradient(to left, ${palette.white}, rgba(255, 255, 255, 25%))`,
   borderImageSlice: 1,
   marginRight: '3.5rem',
-  width: '56rem',
   height: 0,
   color: palette.white,
   opacity: 0.5,

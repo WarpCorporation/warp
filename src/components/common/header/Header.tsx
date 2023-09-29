@@ -8,9 +8,12 @@ const Header = (props: PropsType) => {
   const { title } = props;
 
   return (
-    <S.Wrap>
-      <span>{title}</span>
-    </S.Wrap>
+    <>
+      <S.DummySpace />
+      <S.Content>
+        <span>{title}</span>
+      </S.Content>
+    </>
   );
 };
 
