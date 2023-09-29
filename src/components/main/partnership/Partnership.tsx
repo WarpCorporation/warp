@@ -14,6 +14,7 @@ const Partnership = () => {
         </S.TitleWrap>
         <S.Logos src={logos} alt='partners' />
         <S.BottomDivider />
+        <S.WhiteSpace />
       </S.Wrap>
     </>
   );

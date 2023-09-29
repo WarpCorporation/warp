@@ -6,7 +6,6 @@ export const DummySpace = styled('div')({
   width: '100%',
   minWidth: screen.minWidth,
   height: '18.5rem',
-  zIndex: 2,
   backgroundColor: 'transparent',
 });
 
@@ -26,6 +25,5 @@ export const Content = styled('div')({
   backgroundImage: `url(${headerLayer})`,
   backgroundSize: 'cover',
   backgroundColor: palette.magenta,
-  zIndex: 1,
   '& span': { transform: 'translateY(1.5rem)' },
 });

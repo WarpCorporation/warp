@@ -1,11 +1,12 @@
 import { Divider as D, styled } from '@mui/material';
-import { palette } from 'constants/';
+import { palette, screen } from 'constants/';
 
 export const Wrap = styled('div')({
   display: 'flex',
   justifyContent: 'center',
   padding: '4.5rem 0',
-  width: '100%',
+  width: '100vw',
+  minWidth: screen.minWidth,
   height: 'calc(100vh - 27.5rem)',
   overflow: 'hidden auto',
 });

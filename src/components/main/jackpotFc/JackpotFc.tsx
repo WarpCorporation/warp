@@ -11,6 +11,7 @@ const JackpotFc = () => {
     <CSC.PageWrap>
       <CSC.Background src={jackpotFcBg} alt='jackpot-fc-bg' />
       <S.Content>
+        <CSC.DummySpace />
         <S.TextWrap>
           <S.Text isKorean={isKorean}>{t('jackpot-fc-01')}</S.Text>
           <S.Text isKorean={isKorean}>{t('jackpot-fc-02')}</S.Text>

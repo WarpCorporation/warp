@@ -3,19 +3,22 @@ import { palette } from 'constants/';
 
 export const Content = styled('div')({
   position: 'relative',
-  top: '-85%',
+  top: 0,
   left: 0,
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   width: '100%',
   height: 'auto',
+  zIndex: 2,
+  overflow: 'hidden auto',
 });
 
 export const TextWrap = styled('div')({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  paddingTop: '3rem',
   width: '37.5rem',
   maxHeight: '85%',
 });

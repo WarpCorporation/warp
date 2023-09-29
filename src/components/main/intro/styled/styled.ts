@@ -4,6 +4,7 @@ import { palette, screen } from 'constants/';
 export const Wrap = styled('div')({
   width: '100%',
   minWidth: screen.minWidth,
+  maxWidth: screen.maxWidth,
   height: '100%',
   backgroundColor: palette.black,
 });
