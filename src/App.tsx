@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { GlobalStyles, styled } from '@mui/material';
 import { Wrap } from 'components/common';
 import { Intro } from 'components/intro';
@@ -7,17 +8,21 @@ import { palette, screen } from 'constants/';
 import './language/i18n';
 
 function App() {
+  const queryClient = new QueryClient();
+
   return (
     <BrowserRouter>
-      <Wrap>
-        <Content>
-          <GlobalStyles styles={scrollbarDesign} />
-          <Routes>
-            <Route path='/' element={<Intro />} />
-            <Route path='/main/*' element={<Main />} />
-          </Routes>
-        </Content>
-      </Wrap>
+      <QueryClientProvider client={queryClient}>
+        <Wrap>
+          <Content>
+            <GlobalStyles styles={scrollbarDesign} />
+            <Routes>
+              <Route path='/' element={<Intro />} />
+              <Route path='/main/*' element={<Main />} />
+            </Routes>
+          </Content>
+        </Wrap>
+      </QueryClientProvider>
     </BrowserRouter>
   );
 }
