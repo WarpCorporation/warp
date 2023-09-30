@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { useImageQuery } from 'lib';
 import { CSC } from 'components/common/styled';
 import { S } from './styled';
 import jackpotFcBg from 'assets/background/jackpotFc/jackpot-fc-bg.png';
@@ -9,7 +10,7 @@ const JackpotFc = () => {
 
   return (
     <CSC.PageWrap>
-      <CSC.Background src={jackpotFcBg} alt='jackpot-fc-bg' />
+      <CSC.Background src={useImageQuery(jackpotFcBg)} alt='jackpot-fc-bg' />
       <S.Content>
         <CSC.DummySpace />
         <S.TextWrap>

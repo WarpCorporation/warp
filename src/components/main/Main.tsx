@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Menu } from './menu';
@@ -7,6 +7,7 @@ import { BrandStory } from './brandStory';
 import { JackpotFc } from './jackpotFc';
 import { Leadership } from './leadership';
 import { Partnership } from './partnership';
+import { Loading } from 'components/common';
 
 const Main = () => {
   const { i18n } = useTranslation();
@@ -19,7 +20,7 @@ const Main = () => {
   }, [i18n]);
 
   return (
-    <>
+    <Suspense fallback={<Loading />}>
       <Menu />
       <Routes>
         <Route path='/' element={<Intro />} />
@@ -28,7 +29,7 @@ const Main = () => {
         <Route path='/leadership' element={<Leadership />} />
         <Route path='/partnership' element={<Partnership />} />
       </Routes>
-    </>
+    </Suspense>
   );
 };
 

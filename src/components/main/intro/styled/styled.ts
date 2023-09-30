@@ -27,7 +27,7 @@ export const Image = styled('div', {
   left,
   width,
   height,
-  backgroundImage: `url(${imageUrl})`,
+  backgroundImage: imageUrl ? `url(${imageUrl})` : undefined,
   backgroundSize: 'cover',
   zIndex,
 }));
@@ -37,6 +37,6 @@ type ImagePropsType = {
   left?: string | number;
   width: string | number;
   height: string | number;
-  imageUrl: string;
+  imageUrl?: string;
   zIndex?: number;
 };

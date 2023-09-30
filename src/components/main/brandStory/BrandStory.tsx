@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { useImageQuery } from 'lib';
 import { CSC } from 'components/common/styled';
 import { S } from './styled';
 import brandStoryBg from 'assets/background/brandStory/brand-story-bg.png';
@@ -8,7 +9,7 @@ const BrandStory = () => {
 
   return (
     <CSC.PageWrap>
-      <CSC.Background src={brandStoryBg} alt='brand-story-bg' />
+      <CSC.Background src={useImageQuery(brandStoryBg)} alt='brand-story-bg' />
       <S.ContentWrap>
         <CSC.DummySpace />
         <S.TextWrap>

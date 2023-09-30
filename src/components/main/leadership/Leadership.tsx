@@ -1,10 +1,28 @@
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useImageQuery } from 'lib';
 import { Header } from 'components/common';
 import { S } from './styled';
+import picture01 from 'assets/image/leadership/profile-pic-01.png';
+import picture02 from 'assets/image/leadership/profile-pic-02.png';
+import picture03 from 'assets/image/leadership/profile-pic-03.png';
+import picture04 from 'assets/image/leadership/profile-pic-04.png';
+import picture05 from 'assets/image/leadership/profile-pic-05.png';
 
 const Leadership = () => {
   const { i18n, t } = useTranslation();
   const isKorean = i18n.language === 'kr';
+  const [qi01, qi02, qi03, qi04, qi05] = [
+    useImageQuery(picture01),
+    useImageQuery(picture02),
+    useImageQuery(picture03),
+    useImageQuery(picture04),
+    useImageQuery(picture05),
+  ];
+  const pictures = useMemo<(string | undefined)[]>(
+    () => [qi01, qi02, qi03, qi04, qi05],
+    [qi01, qi02, qi03, qi04, qi05]
+  );
 
   return (
     <>
@@ -13,13 +31,7 @@ const Leadership = () => {
         <S.CardWrap>
           {leadershipInfo.map(({ nameEn, nameKo, position }, idx) => (
             <S.Card key={nameEn}>
-              <S.Picture
-                src={require(`assets/image/leadership/profile-pic-${String(idx + 1).padStart(
-                  2,
-                  '0'
-                )}.png`)}
-                alt={`picture-${position}`}
-              />
+              <S.Picture src={pictures[idx]} alt={`picture-${position}`} />
               <S.Information>
                 <S.Names>
                   {nameEn}
