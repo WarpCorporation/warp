@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect, useEffect } from 'react';
+import { useState, useLayoutEffect, useEffect, useRef } from 'react';
 import { S } from './styled';
 import { palette } from 'constants/';
 import { getBackgroundColor } from 'util/';
@@ -17,6 +17,8 @@ const Loading = (props: PropsType) => {
   const [animationDone, setAnimationDone] = useState<boolean>(false);
   const [renderChild, setRenderChild] = useState<boolean>(false);
   const [backgroundColor, setBackgroundColor] = useState<string>(palette.dark);
+  const renderTimeoutRef = useRef<NodeJS.Timeout>(null);
+  const animationTimeoutRef = useRef<NodeJS.Timeout>(null);
 
   useLayoutEffect(() => {
     setAnimationClassName(null);
@@ -30,17 +32,26 @@ const Loading = (props: PropsType) => {
       top: 'top-loading-animation',
       bottom: 'bottom-loading-animation',
     });
-    const renderTimeout = setTimeout(() => {
+    if (renderTimeoutRef.current) {
+      clearTimeout(renderTimeoutRef.current);
+    }
+    if (animationTimeoutRef.current) {
+      clearTimeout(animationTimeoutRef.current);
+    }
+    //@ts-expect-error timeout useRef 설정을 위한 타입 체크 skip
+    renderTimeoutRef.current = setTimeout(() => {
       setRenderChild(true);
       setBackgroundColor(getBackgroundColor(pathname));
     }, 1000);
-    const animationTimeout = setTimeout(() => {
+    //@ts-expect-error timeout useRef 설정을 위한 타입 체크 skip
+    animationTimeoutRef.current = setTimeout(() => {
       setAnimationDone(true);
     }, 3000);
 
     return () => {
-      clearTimeout(renderTimeout);
-      clearTimeout(animationTimeout);
+      if (!renderTimeoutRef.current || !animationTimeoutRef.current) return;
+      clearTimeout(renderTimeoutRef.current);
+      clearTimeout(animationTimeoutRef.current);
     };
   }, [pathname]);
 
