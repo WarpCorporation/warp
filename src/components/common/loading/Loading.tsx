@@ -28,6 +28,7 @@ const Loading = (props: PropsType) => {
 
   useEffect(() => {
     if (!pathname) return;
+    if (renderTimeoutRef.current || animationTimeoutRef.current) return;
     setAnimationClassName({
       top: 'top-loading-animation',
       bottom: 'bottom-loading-animation',
