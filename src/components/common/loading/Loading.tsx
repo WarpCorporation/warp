@@ -47,13 +47,15 @@ const Loading = (props: PropsType) => {
     animationTimeoutRef.current = setTimeout(() => {
       setAnimationDone(true);
     }, 3000);
+  }, [pathname]);
 
+  useEffect(() => {
     return () => {
       if (!renderTimeoutRef.current || !animationTimeoutRef.current) return;
       clearTimeout(renderTimeoutRef.current);
       clearTimeout(animationTimeoutRef.current);
     };
-  }, [pathname]);
+  }, []);
 
   return (
     <>
