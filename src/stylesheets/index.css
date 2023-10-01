@@ -20,6 +20,115 @@ code {
   height: 100%;
 }
 
+@keyframes animate-loading-top {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  85% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50vh);
+    opacity: 0;
+  }
+}
+
+.top-loading-animation {
+  animation: animate-loading-top 3s ease-in-out;
+}
+
+@keyframes animate-loading-bottom {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  85% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(50vh);
+    opacity: 0;
+  }
+}
+
+.bottom-loading-animation {
+  animation: animate-loading-bottom 3s ease-in-out;
+}
+
+@keyframes animate-loading-logo {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.logo-loading-animation {
+  animation: animate-loading-logo 3s ease;
+}
+
+@keyframes animate-loading-divider {
+  0% {
+    transform: translateX(-100vw);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  85% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50vh);
+    opacity: 0;
+  }
+}
+
+.divider-loading-animation {
+  animation: animate-loading-divider 3s ease-in-out;
+}
+
+.logo-for-unloaded {
+  animation: animate-loading-logo 2.5s ease;
+  animation-iteration-count: infinite;
+}
+
+@keyframes top-close-page {
+  0% {
+    transform: translateY(-50vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.top-closing-animation {
+  animation: top-close-page 750ms ease;
+}
+
+@keyframes bottom-close-page {
+  0% {
+    transform: translateY(50vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.bottom-closing-animation {
+  animation: bottom-close-page 750ms ease;
+}
+
 @font-face {
   font-family: 'Gotham';
   src: local('Gotham Black'), local('Gotham-Black'),

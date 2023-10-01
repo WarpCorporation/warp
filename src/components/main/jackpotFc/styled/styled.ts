@@ -10,7 +10,6 @@ export const Content = styled('div')({
   alignItems: 'center',
   width: '100%',
   height: 'auto',
-  zIndex: 2,
   overflow: 'hidden auto',
 });
 
@@ -21,6 +20,7 @@ export const TextWrap = styled('div')({
   paddingTop: '3rem',
   width: '37.5rem',
   maxHeight: '85%',
+  zIndex: 5,
 });
 
 export const Text = styled('p', {
@@ -42,4 +42,6 @@ export const JackpotFcText = styled('span')({
   fontSize: '3rem',
   fontWeight: 900,
   textAlign: 'center',
+  zIndex: 5,
+  userSelect: 'none',
 });

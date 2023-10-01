@@ -1,5 +1,5 @@
 import { styled } from '@mui/material';
-import { screen } from 'constants/';
+import { screen, palette } from 'constants/';
 
 export const PageWrap = styled('div')({
   display: 'flex',
@@ -25,3 +25,17 @@ export const DummySpace = styled('div')({
   minHeight: '7rem',
   height: '7rem',
 });
+
+export const Closing = styled('div', {
+  shouldForwardProp: (prop: string) => !['shouldClose', 'isTop'].includes(prop),
+})<{ shouldClose: boolean; isTop?: boolean }>(({ shouldClose, isTop }) => ({
+  position: 'absolute',
+  top: shouldClose ? `${isTop ? 0 : 50}vh` : `${isTop ? -50 : 100}vh`,
+  left: 0,
+  display: 'block',
+  width: '100vw',
+  height: '50vh',
+  backgroundColor: palette.dark,
+  overflow: 'hidden',
+  zIndex: 30,
+}));

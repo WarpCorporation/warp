@@ -1,5 +1,5 @@
-import { Suspense, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Suspense, useState, useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Menu } from './menu';
 import { Intro } from './intro';
@@ -10,7 +10,9 @@ import { Partnership } from './partnership';
 import { Loading } from 'components/common';
 
 const Main = () => {
+  const [currentPathname, setCurrentPathname] = useState<string>('');
   const { i18n } = useTranslation();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const languageSet = sessionStorage.getItem('@warp_language') ?? 'kr';
@@ -19,16 +21,24 @@ const Main = () => {
     sessionStorage.setItem('@warp_language', languageSet);
   }, [i18n]);
 
+  useEffect(() => {
+    setCurrentPathname(pathname);
+  }, [pathname]);
+
   return (
     <Suspense fallback={<Loading />}>
-      <Menu />
-      <Routes>
-        <Route path='/' element={<Intro />} />
-        <Route path='/brand-story' element={<BrandStory />} />
-        <Route path='/jackpot-fc' element={<JackpotFc />} />
-        <Route path='/leadership' element={<Leadership />} />
-        <Route path='/partnership' element={<Partnership />} />
-      </Routes>
+      <Loading pathname={currentPathname}>
+        <>
+          <Menu />
+          <Routes>
+            <Route path='/' element={<Intro />} />
+            <Route path='/brand-story' element={<BrandStory />} />
+            <Route path='/jackpot-fc' element={<JackpotFc />} />
+            <Route path='/leadership' element={<Leadership />} />
+            <Route path='/partnership' element={<Partnership />} />
+          </Routes>
+        </>
+      </Loading>
     </Suspense>
   );
 };
