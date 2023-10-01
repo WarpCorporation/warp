@@ -6,10 +6,11 @@ import brandStoryBg from 'assets/background/brandStory/brand-story-bg.png';
 
 const BrandStory = () => {
   const { t } = useTranslation();
+  const [brandStoryImage] = useImageQuery(['brand-story', [brandStoryBg]]);
 
   return (
     <CSC.PageWrap>
-      <CSC.Background src={useImageQuery(brandStoryBg)} alt='brand-story-bg' />
+      <CSC.Background src={brandStoryImage} alt='brand-story-bg' />
       <S.ContentWrap>
         <CSC.DummySpace />
         <S.TextWrap>

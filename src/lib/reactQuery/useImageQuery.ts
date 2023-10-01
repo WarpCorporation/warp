@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import { getLoadedImage } from 'util/';
 
-export const useImageQuery = (imageSrc: string) => {
+export const useImageQuery = (imageSources: [string, string[]]) => {
   const { data } = useQuery({
-    queryFn: () => getLoadedImage(imageSrc),
-    queryKey: ['image-src', imageSrc],
+    queryFn: () => getLoadedImage(imageSources),
+    queryKey: ['image-src', imageSources],
     suspense: true,
   });
-  return data;
+  return data ?? [];
 };

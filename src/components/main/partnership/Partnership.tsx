@@ -4,6 +4,8 @@ import { S } from './styled';
 import logos from 'assets/image/partnership/partner-logos.png';
 
 const Partnership = () => {
+  const [partnerLogos] = useImageQuery(['partnership', [logos]]);
+
   return (
     <>
       <Header title='PARTNERSHIP' />
@@ -13,7 +15,7 @@ const Partnership = () => {
           <S.Title>Major Clients</S.Title>
           <S.TopDivider dir='right' />
         </S.TitleWrap>
-        <S.Logos src={useImageQuery(logos)} alt='partners' />
+        <S.Logos src={partnerLogos} alt='partners' />
         <S.BottomDivider />
         <S.WhiteSpace />
       </S.Wrap>

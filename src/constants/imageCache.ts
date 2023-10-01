@@ -1,1 +1,1 @@
-export const imageCache: Record<string, HTMLImageElement> = {};
+export const imageCache: Record<string, HTMLImageElement[]> = {};

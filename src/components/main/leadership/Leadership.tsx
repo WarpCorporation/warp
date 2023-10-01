@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useImageQuery } from 'lib';
 import { Header } from 'components/common';
@@ -12,17 +11,10 @@ import picture05 from 'assets/image/leadership/profile-pic-05.png';
 const Leadership = () => {
   const { i18n, t } = useTranslation();
   const isKorean = i18n.language === 'kr';
-  const [qi01, qi02, qi03, qi04, qi05] = [
-    useImageQuery(picture01),
-    useImageQuery(picture02),
-    useImageQuery(picture03),
-    useImageQuery(picture04),
-    useImageQuery(picture05),
-  ];
-  const pictures = useMemo<(string | undefined)[]>(
-    () => [qi01, qi02, qi03, qi04, qi05],
-    [qi01, qi02, qi03, qi04, qi05]
-  );
+  const queriedImages = useImageQuery([
+    'leadership',
+    [picture01, picture02, picture03, picture04, picture05],
+  ]);
 
   return (
     <>
@@ -31,7 +23,7 @@ const Leadership = () => {
         <S.CardWrap>
           {leadershipInfo.map(({ nameEn, nameKo, position }, idx) => (
             <S.Card key={nameEn}>
-              <S.Picture src={pictures[idx]} alt={`picture-${position}`} />
+              <S.Picture src={queriedImages[idx]} alt={`picture-${position}`} />
               <S.Information>
                 <S.Names>
                   {nameEn}

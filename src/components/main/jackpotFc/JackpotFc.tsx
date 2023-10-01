@@ -7,10 +7,11 @@ import jackpotFcBg from 'assets/background/jackpotFc/jackpot-fc-bg.png';
 const JackpotFc = () => {
   const { i18n, t } = useTranslation();
   const isKorean = i18n.language === 'kr';
+  const [jackpotFcImage] = useImageQuery(['jackpot-fc', [jackpotFcBg]]);
 
   return (
     <CSC.PageWrap>
-      <CSC.Background src={useImageQuery(jackpotFcBg)} alt='jackpot-fc-bg' />
+      <CSC.Background src={jackpotFcImage} alt='jackpot-fc-bg' />
       <S.Content>
         <CSC.DummySpace />
         <S.TextWrap>

@@ -1,19 +1,22 @@
 import { imageCache } from 'constants/';
 
-const getLoadedImage = (src: string): string | Promise<string> => {
-  if (imageCache[src]) {
-    return src;
+const getLoadedImage = (sources: [string, string[]]): string[] | Promise<string[]> => {
+  const [cacheKey, imageUrls] = sources;
+  if (imageCache[cacheKey]) {
+    return imageUrls;
   }
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.src = src;
-    img.onload = () => {
-      imageCache[src] = img;
-      resolve(src);
-    };
-    img.onerror = (e) => {
-      reject(e);
-    };
+  return new Promise((resolve) => {
+    const images = [];
+    imageUrls.forEach((url) => {
+      const img = new Image();
+      img.src = url;
+      img.onload = () => {
+        images.push(img);
+        if (images.length === imageUrls.length) {
+          resolve(imageUrls);
+        }
+      };
+    });
   });
 };
 
