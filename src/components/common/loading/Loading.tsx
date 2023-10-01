@@ -15,35 +15,21 @@ const Loading = (props: PropsType) => {
     string
   > | null>(null);
   const [animationDone, setAnimationDone] = useState<boolean>(false);
-  const [renderChild, setRenderChild] = useState<boolean>(false);
   const [backgroundColor, setBackgroundColor] = useState<string>(palette.dark);
-  const renderTimeoutRef = useRef<NodeJS.Timeout>(null);
   const animationTimeoutRef = useRef<NodeJS.Timeout>(null);
 
   useLayoutEffect(() => {
     setAnimationClassName(null);
     setAnimationDone(false);
-    setRenderChild(false);
   }, [pathname]);
 
   useEffect(() => {
     if (!pathname) return;
-    if (renderTimeoutRef.current || animationTimeoutRef.current) return;
     setAnimationClassName({
       top: 'top-loading-animation',
       bottom: 'bottom-loading-animation',
     });
-    if (renderTimeoutRef.current) {
-      clearTimeout(renderTimeoutRef.current);
-    }
-    if (animationTimeoutRef.current) {
-      clearTimeout(animationTimeoutRef.current);
-    }
-    //@ts-expect-error timeout useRef 설정을 위한 타입 체크 skip
-    renderTimeoutRef.current = setTimeout(() => {
-      setRenderChild(true);
-      setBackgroundColor(getBackgroundColor(pathname));
-    }, 1000);
+    setBackgroundColor(getBackgroundColor(pathname));
     //@ts-expect-error timeout useRef 설정을 위한 타입 체크 skip
     animationTimeoutRef.current = setTimeout(() => {
       setAnimationDone(true);
@@ -52,8 +38,7 @@ const Loading = (props: PropsType) => {
 
   useEffect(() => {
     return () => {
-      if (!renderTimeoutRef.current || !animationTimeoutRef.current) return;
-      clearTimeout(renderTimeoutRef.current);
+      if (!animationTimeoutRef.current) return;
       clearTimeout(animationTimeoutRef.current);
     };
   }, []);
@@ -68,7 +53,7 @@ const Loading = (props: PropsType) => {
         {pathname && <S.Divider className='divider-loading-animation' />}
         <S.BottomWrap className={animationClassName?.bottom} />
       </S.Wrap>
-      {renderChild && children}
+      {children}
     </>
   );
 };
