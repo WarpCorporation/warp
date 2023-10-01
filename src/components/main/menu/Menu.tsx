@@ -42,6 +42,10 @@ const Menu = () => {
     movePage('/partnership');
   };
 
+  const handlePressMediaClick = () => {
+    movePage('/press-media');
+  };
+
   return (
     <>
       <S.Wrap backgroundColor={getBackgroundColor(pathname)}>
@@ -60,7 +64,7 @@ const Menu = () => {
           <S.Button variant='text' onClick={handlePartnershipClick} hoverColor={hoverColor}>
             PARTNERSHIP
           </S.Button>
-          <S.Button variant='text' hoverColor={hoverColor}>
+          <S.Button variant='text' onClick={handlePressMediaClick} hoverColor={hoverColor}>
             PRESS · MEDIA
           </S.Button>
         </S.ButtonsGroup>
