@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { getBackgroundColor, getMenuButtonColor } from 'util/';
 import { CSC } from 'components/common/styled';
 import { S } from './styled';
+import logo from 'assets/image/common/logo-white.png';
 
 const Menu = () => {
   const [shouldClose, setShouldClose] = useState<boolean>(false);
@@ -49,7 +50,7 @@ const Menu = () => {
   return (
     <>
       <S.Wrap backgroundColor={getBackgroundColor(pathname)}>
-        <S.Logo onClick={handleLogoClick} />
+        <S.Logo onClick={handleLogoClick} src={logo} alt='logo' />
         <S.Line />
         <S.ButtonsGroup>
           <S.Button variant='text' onClick={handleBrandStoryClick} hoverColor={hoverColor}>

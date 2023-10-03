@@ -1,6 +1,5 @@
 import { Button as B, Divider, styled } from '@mui/material';
 import { palette, screen } from 'constants/';
-import logo from 'assets/image/common/logo-white.png';
 
 export const Wrap = styled('div', {
   shouldForwardProp: (prop: string) => prop !== 'backgroundColor',
@@ -16,14 +15,12 @@ export const Wrap = styled('div', {
   height: '3rem',
   backgroundColor,
   zIndex: 5,
+  '&& img': { minWidth: '8rem', maxWidth: '8rem' },
 }));
 
-export const Logo = styled('div')({
+export const Logo = styled('img')({
   width: '8rem',
-  minWidth: '8rem',
-  height: '2rem',
-  backgroundImage: `url(${logo})`,
-  backgroundSize: 'cover',
+  height: '1.875rem',
   cursor: 'pointer',
 });
 

@@ -1,6 +1,5 @@
 import { Divider as D, styled } from '@mui/material';
 import { palette } from 'constants/';
-import logo from 'assets/image/common/logo-white.png';
 
 export const Wrap = styled('div', {
   shouldForwardProp: (prop: string) => !['animationDone', 'backgroundColor'].includes(prop),
@@ -26,14 +25,12 @@ export const LogoWrap = styled('div')({
   backgroundColor: 'transparent',
   zIndex: 30,
   opacity: 0,
+  '&& img': { minWidth: '8.5rem', maxWidth: '8.5rem' },
 });
 
-export const Logo = styled('div')({
-  width: '8rem',
-  minWidth: '8rem',
+export const Logo = styled('img')({
+  width: '8.5rem',
   height: '2rem',
-  backgroundImage: `url(${logo})`,
-  backgroundSize: 'cover',
 });
 
 export const TopWrap = styled('div')({

@@ -2,6 +2,7 @@ import { useState, useLayoutEffect, useEffect, useRef } from 'react';
 import { S } from './styled';
 import { palette } from 'constants/';
 import { getBackgroundColor } from 'util/';
+import logo from 'assets/image/common/logo-white.png';
 
 type PropsType = {
   pathname?: string;
@@ -48,7 +49,7 @@ const Loading = (props: PropsType) => {
       <S.Wrap animationDone={animationDone} backgroundColor={backgroundColor}>
         <S.TopWrap className={animationClassName?.top} />
         <S.LogoWrap className={pathname ? 'logo-loading-animation' : 'logo-for-unloaded'}>
-          <S.Logo />
+          <S.Logo src={logo} alt='logo' />
         </S.LogoWrap>
         {pathname && <S.Divider className='divider-loading-animation' />}
         <S.BottomWrap className={animationClassName?.bottom} />
