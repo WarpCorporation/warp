@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { GlobalStyles, styled } from '@mui/material';
@@ -5,10 +6,20 @@ import { Wrap } from 'components/common';
 import { Intro } from 'components/intro';
 import { Main } from 'components/main';
 import { palette, screen } from 'constants/';
+import logo from 'assets/image/common/logo-white.png';
 import './language/i18n';
 
 function App() {
   const queryClient = new QueryClient();
+
+  const preloadLogo = () => {
+    const img = new Image();
+    img.src = logo;
+  };
+
+  useEffect(() => {
+    preloadLogo();
+  }, []);
 
   return (
     <BrowserRouter>
