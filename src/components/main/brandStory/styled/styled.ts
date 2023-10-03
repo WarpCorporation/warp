@@ -1,5 +1,5 @@
 import { Divider as D, styled } from '@mui/material';
-import { palette } from 'constants/';
+import { screen, palette } from 'constants/';
 import logo from 'assets/image/common/logo-black.png';
 
 export const ContentWrap = styled('div')({
@@ -13,7 +13,9 @@ export const ContentWrap = styled('div')({
   overflow: 'hidden auto',
 });
 
-export const TextWrap = styled('div')({
+export const TextWrap = styled('div', {
+  shouldForwardProp: (prop: string) => prop !== 'textCenter',
+})<{ textCenter: boolean }>(({ textCenter }) => ({
   position: 'relative',
   left: 0,
   display: 'flex',
@@ -21,9 +23,10 @@ export const TextWrap = styled('div')({
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
+  minWidth: screen.minWidth,
   zIndex: 2,
-  '& span, hr, div, p': { marginRight: '50rem' },
-});
+  '& span, hr, div, p': { marginRight: `${textCenter ? 25 : 50}rem` },
+}));
 
 export const Title = styled('span')({
   minWidth: '7.55rem',

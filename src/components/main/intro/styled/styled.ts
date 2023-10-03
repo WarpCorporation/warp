@@ -1,40 +1,29 @@
 import { styled } from '@mui/material';
-import { palette, screen } from 'constants/';
-
-export const Wrap = styled('div')({
-  width: '100%',
-  minWidth: screen.minWidth,
-  maxWidth: screen.maxWidth,
-  height: '100%',
-  backgroundColor: palette.black,
-});
+import { palette } from 'constants/';
 
 export const TextWrap = styled('div')({
-  width: 'auto',
-  height: 'auto',
+  display: 'flex',
+  justifyContent: 'center',
+  width: '100%',
+  height: '100%',
   color: palette.white,
   fontSize: '2rem',
 });
 
-export const Text = styled('span')({});
-
 export const Image = styled('div', {
   shouldForwardProp: (prop: string) =>
-    !['top', 'left', 'width', 'height', 'imageUrl', 'zIndex'].includes(prop),
-})<ImagePropsType>(({ top, left, width, height, imageUrl, zIndex }) => ({
-  position: 'relative',
-  top,
-  left,
+    !['top', 'width', 'height', 'imageUrl', 'zIndex'].includes(prop),
+})<ImagePropsType>(({ top, width, height, imageUrl, zIndex }) => ({
   width,
   height,
   backgroundImage: imageUrl ? `url(${imageUrl})` : undefined,
   backgroundSize: 'cover',
   zIndex,
+  transform: `translateY(${top})`,
 }));
 
 type ImagePropsType = {
   top?: string | number;
-  left?: string | number;
   width: string | number;
   height: string | number;
   imageUrl?: string;

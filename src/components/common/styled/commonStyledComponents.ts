@@ -12,12 +12,12 @@ export const PageWrap = styled('div')({
 export const Background = styled('img')({
   position: 'absolute',
   top: 0,
-  left: '50%',
+  left: 0,
   width: '100%',
+  minWidth: screen.minWidth,
   height: '100%',
   zIndex: 1,
   overflow: 'hidden',
-  transform: 'translateX(-50%)',
 });
 
 export const DummySpace = styled('div')({

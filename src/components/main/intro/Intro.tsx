@@ -17,29 +17,13 @@ const Intro = () => {
   return (
     <CSC.PageWrap>
       <CSC.Background src={mainBg} alt='main-intro-bg' />
-      <S.Wrap>
-        <S.TextWrap>
-          {isKorean ? (
-            <S.Image
-              top='15rem'
-              left='45.875rem'
-              width='28.25rem'
-              height='3.25rem'
-              imageUrl={textImage}
-              zIndex={5}
-            />
-          ) : (
-            <S.Image
-              top='13.75rem'
-              left='40rem'
-              width='40rem'
-              height='2.75rem'
-              imageUrl={textImage}
-              zIndex={5}
-            />
-          )}
-        </S.TextWrap>
-      </S.Wrap>
+      <S.TextWrap>
+        {isKorean ? (
+          <S.Image top='15rem' width='28.25rem' height='3.25rem' imageUrl={textImage} zIndex={5} />
+        ) : (
+          <S.Image top='13.75rem' width='40rem' height='2.75rem' imageUrl={textImage} zIndex={5} />
+        )}
+      </S.TextWrap>
     </CSC.PageWrap>
   );
 };

@@ -1,4 +1,4 @@
 export const screen = {
-  minWidth: '105rem',
+  minWidth: '73.75rem',
   maxWidth: '120rem',
 };
