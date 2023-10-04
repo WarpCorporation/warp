@@ -34,7 +34,7 @@ const Loading = (props: PropsType) => {
     //@ts-expect-error timeout useRef 설정을 위한 타입 체크 skip
     animationTimeoutRef.current = setTimeout(() => {
       setAnimationDone(true);
-    }, 3000);
+    }, 3750);
   }, [pathname]);
 
   useEffect(() => {

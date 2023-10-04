@@ -10,7 +10,7 @@ export const Content = styled('div')({
   alignItems: 'center',
   width: '100%',
   height: 'auto',
-  overflow: 'hidden auto',
+  overflow: 'hidden',
 });
 
 export const TextWrap = styled('div')({

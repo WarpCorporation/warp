@@ -8,7 +8,7 @@ export const Wrap = styled('div')({
   padding: '4.5rem 0',
   width: '100vw',
   minWidth: screen.minWidth,
-  height: 'calc(100vh - 27.5rem)',
+  height: 'calc(100vh - 25.5rem)',
   overflow: 'hidden auto',
 });
 

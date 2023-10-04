@@ -10,7 +10,7 @@ export const ContentWrap = styled('div')({
   flexDirection: 'column',
   width: '100vw',
   height: '100vh',
-  overflow: 'hidden auto',
+  overflow: 'hidden',
 });
 
 export const TextWrap = styled('div', {
@@ -25,7 +25,8 @@ export const TextWrap = styled('div', {
   justifyContent: 'center',
   minWidth: screen.minWidth,
   zIndex: 2,
-  '& span, hr, div, p': { marginRight: `${textCenter ? 25 : 50}rem` },
+  '& span, hr, div, p': { marginRight: `${textCenter ? 32.5 : 50}rem` },
+  '& p': { fontSize: `${textCenter ? 0.875 : 1}rem` },
 }));
 
 export const Title = styled('span')({
@@ -45,7 +46,6 @@ export const Content = styled('p')({
   margin: '0.75rem 0',
   width: 'fit-content',
   minWidth: '45rem',
-  fontSize: '1rem',
   fontWeight: 500,
   lineHeight: '1.25rem',
   whiteSpace: 'pre',

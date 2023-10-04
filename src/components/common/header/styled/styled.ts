@@ -5,7 +5,7 @@ import headerLayer from 'assets/common/header-layer.png';
 export const DummySpace = styled('div')({
   width: '100%',
   minWidth: screen.minWidth,
-  height: '18.5rem',
+  height: '16.5rem',
   backgroundColor: 'transparent',
 });
 
@@ -18,7 +18,7 @@ export const Content = styled('div')({
   alignItems: 'center',
   width: '100vw',
   minWidth: screen.minWidth,
-  height: '18.5rem',
+  height: '16.5rem',
   color: palette.white,
   fontSize: '1.5rem',
   fontWeight: 500,

@@ -7,7 +7,7 @@ export const Wrap = styled('div')({
   alignItems: 'center',
   width: '100vw',
   minWidth: screen.minWidth,
-  height: 'calc(100vh - 27.5rem)',
+  height: 'calc(100vh - 25.5rem)',
   '&& img': { minWidth: '58rem' },
 });
 
