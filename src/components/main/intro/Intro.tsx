@@ -2,27 +2,19 @@ import { CSC } from 'components/common/styled';
 import { S } from './styled';
 import { useTranslation } from 'react-i18next';
 import { useImageQuery } from 'lib';
+import IntroText from './IntroText';
 import mainIntroBg from 'assets/background/main/main-bg.png';
-import textKo from 'assets/image/main/text-ko.png';
-import textEn from 'assets/image/main/text-en.png';
 
 const Intro = () => {
   const { i18n } = useTranslation();
   const isKorean = i18n.language === 'kr';
-  const [textImage, mainBg] = useImageQuery([
-    'main-intro',
-    [isKorean ? textKo : textEn, mainIntroBg],
-  ]);
+  const [mainBg] = useImageQuery(['main-intro', [mainIntroBg]]);
 
   return (
     <CSC.PageWrap>
       <CSC.Background src={mainBg} alt='main-intro-bg' />
       <S.TextWrap>
-        {isKorean ? (
-          <S.Image top='15rem' width='28.25rem' height='3.25rem' imageUrl={textImage} zIndex={5} />
-        ) : (
-          <S.Image top='13.75rem' width='40rem' height='2.75rem' imageUrl={textImage} zIndex={5} />
-        )}
+        <IntroText isKorean={isKorean} />
       </S.TextWrap>
     </CSC.PageWrap>
   );
