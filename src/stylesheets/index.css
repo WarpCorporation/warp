@@ -6,7 +6,7 @@ body {
   margin: 0;
   width: 100vw;
   height: 100vh;
-  font-family: 'Gotham';
+  font-family: 'Gotham', 'HGGothicssi';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -130,11 +130,56 @@ code {
 }
 
 @font-face {
+  font-family: 'HGGothicssi';
+  src: url('./HGGothicssi-Black/HGGothicssi-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  unicode-range: U+AC00-D7A3;
+}
+
+@font-face {
+  font-family: 'HGGothicssi';
+  src: url('./HGGothicssi-Bold/HGGothicssi-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  unicode-range: U+AC00-D7A3;
+}
+
+@font-face {
+  font-family: 'HGGothicssi';
+  src: url('./HGGothicssi-Medium/HGGothicssi-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  unicode-range: U+AC00-D7A3;
+}
+
+@font-face {
+  font-family: 'HGGothicssi';
+  src: url('./HGGothicssi-Light/HGGothicssi-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  unicode-range: U+AC00-D7A3;
+}
+
+@font-face {
+  font-family: 'HGGothicssi';
+  src: url('./HGGothicssi-XLight/HGGothicssi-XLight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  unicode-range: U+AC00-D7A3;
+}
+
+@font-face {
+  font-family: 'HGGothicssi';
+  src: url('./HGGothicssi-Thin/HGGothicssi-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  unicode-range: U+AC00-D7A3;
+}
+
+@font-face {
   font-family: 'Gotham';
-  src: local('Gotham Black'), local('Gotham-Black'),
-    url('./Gotham-Black/Gotham-Black.woff2') format('woff2'),
-    url('./Gotham-Black/Gotham-Black.woff') format('woff'),
-    url('./Gotham-Black/Gotham-Black.ttf') format('truetype');
+  src: url('./Gotham-Black/Gotham-Black.woff2') format('woff2');
   font-weight: 900;
   font-style: normal;
   unicode-range: U+00-7F;
@@ -142,10 +187,7 @@ code {
 
 @font-face {
   font-family: 'Gotham';
-  src: local('Gotham Bold'), local('Gotham-Bold'),
-    url('./Gotham-Bold/Gotham-Bold.woff2') format('woff2'),
-    url('./Gotham-Bold/Gotham-Bold.woff') format('woff'),
-    url('./Gotham-Bold/Gotham-Bold.ttf') format('truetype');
+  src: url('./Gotham-Bold/Gotham-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   unicode-range: U+00-7F;
@@ -153,10 +195,7 @@ code {
 
 @font-face {
   font-family: 'Gotham';
-  src: local('Gotham Book'), local('Gotham-Book'),
-    url('./Gotham-Book/Gotham-Book.woff2') format('woff2'),
-    url('./Gotham-Book/Gotham-Book.woff') format('woff'),
-    url('./Gotham-Book/Gotham-Book.ttf') format('truetype');
+  src: url('./Gotham-Book/Gotham-Book.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   unicode-range: U+00-7F;
@@ -164,10 +203,7 @@ code {
 
 @font-face {
   font-family: 'Gotham';
-  src: local('Gotham Light'), local('Gotham-Light'),
-    url('./Gotham-Light/Gotham-Light.woff2') format('woff2'),
-    url('./Gotham-Light/Gotham-Light.woff') format('woff'),
-    url('./Gotham-Light/Gotham-Light.ttf') format('truetype');
+  src: url('./Gotham-Light/Gotham-Light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
   unicode-range: U+00-7F;
@@ -175,10 +211,7 @@ code {
 
 @font-face {
   font-family: 'Gotham';
-  src: local('Gotham Medium'), local('Gotham-Medium'),
-    url('./Gotham-Medium/Gotham-Medium.woff2') format('woff2'),
-    url('./Gotham-Medium/Gotham-Medium.woff') format('woff'),
-    url('./Gotham-Medium/Gotham-Medium.ttf') format('truetype');
+  src: url('./Gotham-Medium/Gotham-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   unicode-range: U+00-7F;
@@ -186,10 +219,7 @@ code {
 
 @font-face {
   font-family: 'Gotham';
-  src: local('Gotham Thin'), local('Gotham-Thin'),
-    url('./Gotham-Thin/Gotham-Thin.woff2') format('woff2'),
-    url('./Gotham-Thin/Gotham-Thin.woff') format('woff'),
-    url('./Gotham-Thin/Gotham-Thin.ttf') format('truetype');
+  src: url('./Gotham-Thin/Gotham-Thin.woff2') format('woff2');
   font-weight: 100;
   font-style: normal;
   unicode-range: U+00-7F;
@@ -197,10 +227,7 @@ code {
 
 @font-face {
   font-family: 'Gotham';
-  src: local('Gotham Ultra'), local('Gotham-Ultra'),
-    url('./Gotham-Ultra/Gotham-Ultra.woff2') format('woff2'),
-    url('./Gotham-Ultra/Gotham-Ultra.woff') format('woff'),
-    url('./Gotham-Ultra/Gotham-Ultra.ttf') format('truetype');
+  src: url('./Gotham-Ultra/Gotham-Ultra.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   unicode-range: U+00-7F;
@@ -208,11 +235,8 @@ code {
 
 @font-face {
   font-family: 'Gotham';
-  src: local('Gotham XLight'), local('Gotham-XLight'),
-    url('./Gotham-XLight/Gotham-XLight.woff2') format('woff2'),
-    url('./Gotham-XLight/Gotham-XLight.woff') format('woff'),
-    url('./Gotham-XLight/Gotham-XLight.ttf') format('truetype');
-  font-weight: 300;
+  src: url('./Gotham-XLight/Gotham-XLight.woff2') format('woff2');
+  font-weight: 200;
   font-style: normal;
   unicode-range: U+00-7F;
 }
