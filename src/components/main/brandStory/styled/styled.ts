@@ -23,6 +23,7 @@ export const TextWrap = styled('div', {
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
+  padding: '1.5rem 0',
   minWidth: screen.minWidth,
   zIndex: 2,
   '& span, hr, div, p': { marginRight: `${textCenter ? 32.5 : 50}rem` },
@@ -38,12 +39,12 @@ export const Title = styled('span')({
 
 export const Divider = styled(D)({
   border: `1px solid ${palette.magenta}`,
-  margin: '1.375rem 0 0.75rem',
+  margin: '1rem 0 0.5rem',
   height: '2.25rem',
 });
 
 export const Content = styled('p')({
-  margin: '0.75rem 0',
+  margin: '0.5rem 0',
   width: 'fit-content',
   minWidth: '45rem',
   fontWeight: 500,
