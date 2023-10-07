@@ -14,6 +14,8 @@ export const Text = styled('div', {
   shouldForwardProp: (prop: string) => !['top', 'height', 'isEn'].includes(prop),
 })<ImagePropsType>(({ top, height, isEn }) => ({
   display: 'flex',
+  justifyContent: 'center',
+  width: '100%',
   height,
   fontSize: `${isEn ? 2 : 2.25}rem`,
   fontWeight: isEn ? 300 : 100,
@@ -32,7 +34,6 @@ export const Slide = styled(S)({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  width: '100%',
   '& span': { width: 'fit-content' },
 });
 
