@@ -1,4 +1,4 @@
-import { styled } from '@mui/material';
+import { Slide as S, styled } from '@mui/material';
 import { palette } from 'constants/';
 
 export const TextWrap = styled('div')({
@@ -11,10 +11,9 @@ export const TextWrap = styled('div')({
 });
 
 export const Text = styled('div', {
-  shouldForwardProp: (prop: string) => !['top', 'width', 'height', 'isEn'].includes(prop),
-})<ImagePropsType>(({ top, width, height, isEn }) => ({
+  shouldForwardProp: (prop: string) => !['top', 'height', 'isEn'].includes(prop),
+})<ImagePropsType>(({ top, height, isEn }) => ({
   display: 'flex',
-  width,
   height,
   fontSize: `${isEn ? 2 : 2.25}rem`,
   fontWeight: isEn ? 300 : 100,
@@ -25,18 +24,32 @@ export const Text = styled('div', {
   '& span:first-of-type': {
     transform: 'translateY(1rem)',
   },
+  '& p': { display: 'flex', margin: 0 },
 }));
 
-export const ForeText = styled('div')({
-  fontWeight: 300,
-  transform: '',
+export const Slide = styled(S)({
+  position: 'absolute',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '100%',
+  '& span': { width: 'fit-content' },
 });
 
-export const RearText = styled('div')({});
+export const TextKoWithImage = styled('span')({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '0.5rem',
+  '& img': {
+    width: '9rem',
+    minWidth: '9rem',
+    height: '2.5rem',
+    transform: 'translateY(0.35rem)',
+  },
+});
 
 type ImagePropsType = {
   top: string | number;
-  width: string | number;
   height: string | number;
   isEn?: boolean;
 };
