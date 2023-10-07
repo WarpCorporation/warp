@@ -10,6 +10,7 @@ const getBackgroundColor = (pathname: string) => {
     leadership: 'transparent',
     partnership: 'transparent',
     'press-media': 'transparent',
+    contact: 'transparent',
   };
   return backgroundColorMap[last(pathname.split('/')) ?? '/'] ?? palette.black;
 };

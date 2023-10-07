@@ -8,6 +8,7 @@ import { JackpotFc } from './jackpotFc';
 import { Leadership } from './leadership';
 import { Partnership } from './partnership';
 import { PressMedia } from './pressMedia';
+import { Contact } from './contact';
 import { Loading } from 'components/common';
 
 const Main = () => {
@@ -38,6 +39,7 @@ const Main = () => {
             <Route path='/leadership' element={<Leadership />} />
             <Route path='/partnership' element={<Partnership />} />
             <Route path='/press-media' element={<PressMedia />} />
+            <Route path='/contact' element={<Contact />} />
           </Routes>
         </>
       </Loading>

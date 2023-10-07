@@ -40,8 +40,8 @@ export const ButtonsGroup = styled('div')({
   flexGrow: 1,
   alignItems: 'center',
   justifyContent: 'space-between',
-  minWidth: '46.5rem',
-  maxWidth: '46.5rem',
+  minWidth: '55.75rem',
+  maxWidth: '55.75rem',
 });
 
 export const Button = styled(B, {

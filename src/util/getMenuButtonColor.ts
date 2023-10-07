@@ -10,6 +10,7 @@ const getMenuButtonColor = (pathname: string) => {
     leadership: palette.white,
     partnership: palette.white,
     'press-media': palette.white,
+    contact: palette.white,
   };
   return colorMap[last(pathname.split('/')) ?? '/'] ?? palette.black;
 };
