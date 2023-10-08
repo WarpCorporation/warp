@@ -1,4 +1,6 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
+import { useRecoilValue } from 'recoil';
+import { atom } from 'recoil/atom';
 import { S } from './styled';
 import logo from 'assets/image/intro/logo.png';
 
@@ -14,6 +16,7 @@ const IntroText = (props: PropsType) => {
     () => ({ timeout: 750, easing: 'linear' }),
     []
   );
+  const { type } = useRecoilValue(atom.screen);
 
   useEffect(() => {
     //@ts-expect-error interval useRef 설정을 위한 타입 체크 skip
@@ -32,7 +35,7 @@ const IntroText = (props: PropsType) => {
   return (
     <>
       {isKorean ? (
-        <S.Text top='15rem' height='3.25rem'>
+        <S.Text top='15rem' height='3.25rem' fontSize={type === 'mobile' ? '1.5rem' : '2.25rem'}>
           <S.Slide in={textKoOption} direction={textKoOption ? 'left' : 'right'} {...slideProps}>
             <p>
               <span>스포츠, </span>
@@ -44,7 +47,7 @@ const IntroText = (props: PropsType) => {
           <S.Slide in={!textKoOption} direction={textKoOption ? 'right' : 'left'} {...slideProps}>
             <p>
               <span>센세이셔널 </span>
-              <S.TextKoWithImage>
+              <S.TextKoWithImage isMobile={type === 'mobile'}>
                 <strong>스릴부스터</strong>
                 <img src={logo} alt='warp' />
               </S.TextKoWithImage>
@@ -52,7 +55,12 @@ const IntroText = (props: PropsType) => {
           </S.Slide>
         </S.Text>
       ) : (
-        <S.Text top='13.75rem' height='2.75rem' isEn={!isKorean}>
+        <S.Text
+          top='13.75rem'
+          height='2.75rem'
+          fontSize={type === 'mobile' ? '1.25rem' : '2rem'}
+          isEn={!isKorean}
+        >
           <span>IGNITING THE </span>
           <span>
             <strong>THRILL OF SPORTS</strong>

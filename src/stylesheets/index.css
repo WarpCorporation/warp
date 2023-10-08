@@ -129,6 +129,19 @@ code {
   animation: bottom-close-page 750ms ease;
 }
 
+@keyframes move-background {
+  0% {
+    transform: translate(0, 2rem);
+  }
+  100% {
+    transform: translate(-52.5%, 2rem);
+  }
+}
+
+.main-intro-bg-animation {
+  animation: move-background 1750ms ease-out;
+}
+
 @font-face {
   font-family: 'HGGothicssi';
   src: url('./HGGothicssi-Black/HGGothicssi-Black.woff2') format('woff2');

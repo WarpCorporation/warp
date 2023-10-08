@@ -58,7 +58,6 @@ const Content = styled('div')({
   minWidth: screen.minWidth,
   maxWidth: screen.maxWidth,
   height: '100%',
-  '& img': { minWidth: screen.minWidth, maxWidth: screen.maxWidth },
 });
 
 const scrollbarDesign = {

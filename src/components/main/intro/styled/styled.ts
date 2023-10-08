@@ -11,13 +11,13 @@ export const TextWrap = styled('div')({
 });
 
 export const Text = styled('div', {
-  shouldForwardProp: (prop: string) => !['top', 'height', 'isEn'].includes(prop),
-})<ImagePropsType>(({ top, height, isEn }) => ({
+  shouldForwardProp: (prop: string) => !['top', 'height', 'fontSize', 'isEn'].includes(prop),
+})<ImagePropsType>(({ top, height, fontSize, isEn }) => ({
   display: 'flex',
   justifyContent: 'center',
   width: '100%',
   height,
-  fontSize: `${isEn ? 2 : 2.25}rem`,
+  fontSize,
   fontWeight: isEn ? 300 : 100,
   letterSpacing: '0.05rem',
   transform: `translateY(${top})`,
@@ -37,20 +37,23 @@ export const Slide = styled(S)({
   '& span': { width: 'fit-content' },
 });
 
-export const TextKoWithImage = styled('span')({
+export const TextKoWithImage = styled('span', {
+  shouldForwardProp: (prop: string) => prop !== 'isMobile',
+})<{ isMobile: boolean }>(({ isMobile }) => ({
   display: 'flex',
   alignItems: 'center',
   gap: '0.5rem',
   '& img': {
-    width: '9rem',
-    minWidth: '9rem',
-    height: '2.5rem',
+    width: `${isMobile ? 6.5 : 9}rem`,
+    minWidth: `${isMobile ? 6.5 : 9}rem`,
+    height: `${isMobile ? 1.75 : 2.5}rem`,
     transform: 'translateY(0.35rem)',
   },
-});
+}));
 
 type ImagePropsType = {
   top: string | number;
   height: string | number;
+  fontSize: string | number;
   isEn?: boolean;
 };
