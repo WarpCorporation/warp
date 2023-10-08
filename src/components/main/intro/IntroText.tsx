@@ -10,8 +10,8 @@ const IntroText = (props: PropsType) => {
   const { isKorean } = props;
   const [textKoOption, setTextKoOption] = useState<boolean>(false);
   const textKoTimeoutRef = useRef<NodeJS.Timeout>(null);
-  const slideProps = useMemo<{ direction: 'left'; timeout: number }>(
-    () => ({ direction: 'left', timeout: 750 }),
+  const slideProps = useMemo<{ timeout: number; easing: string }>(
+    () => ({ timeout: 750, easing: 'linear' }),
     []
   );
 
@@ -33,7 +33,7 @@ const IntroText = (props: PropsType) => {
     <>
       {isKorean ? (
         <S.Text top='15rem' height='3.25rem'>
-          <S.Slide in={textKoOption} {...slideProps}>
+          <S.Slide in={textKoOption} direction={textKoOption ? 'left' : 'right'} {...slideProps}>
             <p>
               <span>스포츠, </span>
               <span>
@@ -41,7 +41,7 @@ const IntroText = (props: PropsType) => {
               </span>
             </p>
           </S.Slide>
-          <S.Slide in={!textKoOption} {...slideProps}>
+          <S.Slide in={!textKoOption} direction={textKoOption ? 'right' : 'left'} {...slideProps}>
             <p>
               <span>센세이셔널 </span>
               <S.TextKoWithImage>
