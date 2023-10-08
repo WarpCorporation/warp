@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
+import { atom } from 'recoil/atom';
+import useResizeObserver from 'use-resize-observer';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { GlobalStyles, styled } from '@mui/material';
 import { Closing, Wrap } from 'components/common';
@@ -12,6 +15,9 @@ import './language/i18n';
 function App() {
   const [shouldClose, setShouldClose] = useState<boolean>(false);
   const queryClient = new QueryClient();
+  const useSetScreenType = useSetRecoilState(atom.screen);
+  const { ref, width = 1920 } = useResizeObserver();
+  useSetScreenType({ width, type: width < 768 ? 'mobile' : width < 1024 ? 'tablet' : 'pc' });
 
   const preloadLogo = () => {
     const img = new Image();
@@ -30,7 +36,7 @@ function App() {
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
         <Wrap>
-          <Content>
+          <Content ref={ref}>
             <GlobalStyles styles={scrollbarDesign} />
             <Closing shouldClose={shouldClose}>
               <Routes>
