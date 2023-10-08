@@ -1,8 +1,11 @@
 import { useNavigate } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import { atom } from 'recoil/atom';
 import { useTranslation } from 'react-i18next';
 import { CSC } from 'components/common/styled';
 import { S } from './styled';
 import introBg from 'assets/background/intro/intro-bg.png';
+import introMobileBg from 'assets/background/intro/intro-mobile-bg.png';
 
 type PropsType = {
   handlePageChange: (newStatus: boolean) => void;
@@ -11,6 +14,7 @@ type PropsType = {
 const Intro = (props: PropsType) => {
   const { handlePageChange } = props;
   const navigate = useNavigate();
+  const { type } = useRecoilValue(atom.screen);
   const { i18n } = useTranslation();
 
   const navigateToMain = () => {
@@ -37,7 +41,7 @@ const Intro = (props: PropsType) => {
 
   return (
     <CSC.PageWrap>
-      <CSC.Background src={introBg} alt='intro-bg' />
+      <CSC.Background src={type === 'mobile' ? introMobileBg : introBg} alt='intro-bg' />
       <S.ButtonsGroup>
         <S.LanguageButton onClick={handleKoreanClick}>
           <span>KOR</span>
