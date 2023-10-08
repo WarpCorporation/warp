@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { getBackgroundColor, getMenuButtonColor } from 'util/';
-import { CSC } from 'components/common/styled';
+import { Closing } from 'components/common';
 import { S } from './styled';
 import logo from 'assets/image/common/logo-white.png';
 
@@ -52,7 +52,7 @@ const Menu = () => {
   };
 
   return (
-    <>
+    <Closing shouldClose={shouldClose}>
       <S.Wrap backgroundColor={getBackgroundColor(pathname)}>
         <S.Logo onClick={handleLogoClick} src={logo} alt='logo' />
         <S.Line />
@@ -77,16 +77,7 @@ const Menu = () => {
           </S.Button>
         </S.ButtonsGroup>
       </S.Wrap>
-      <CSC.Closing
-        shouldClose={shouldClose}
-        isTop
-        className={shouldClose ? 'top-closing-animation' : ''}
-      />
-      <CSC.Closing
-        shouldClose={shouldClose}
-        className={shouldClose ? 'bottom-closing-animation' : ''}
-      />
-    </>
+    </Closing>
   );
 };
 

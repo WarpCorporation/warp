@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { CSC } from 'components/common/styled';
+import { Closing } from 'components/common';
 import { S } from './styled';
 import introBg from 'assets/background/intro/intro-bg.png';
 
@@ -30,7 +31,7 @@ const Intro = () => {
   };
 
   return (
-    <>
+    <Closing shouldClose={shouldClose}>
       <CSC.PageWrap>
         <CSC.Background src={introBg} alt='intro-bg' />
         <S.ButtonsGroup>
@@ -42,16 +43,7 @@ const Intro = () => {
           </S.LanguageButton>
         </S.ButtonsGroup>
       </CSC.PageWrap>
-      <CSC.Closing
-        shouldClose={shouldClose}
-        isTop
-        className={shouldClose ? 'top-closing-animation' : ''}
-      />
-      <CSC.Closing
-        shouldClose={shouldClose}
-        className={shouldClose ? 'bottom-closing-animation' : ''}
-      />
-    </>
+    </Closing>
   );
 };
 
