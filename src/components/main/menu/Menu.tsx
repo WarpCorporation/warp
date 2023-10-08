@@ -1,12 +1,14 @@
-import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { getBackgroundColor, getMenuButtonColor } from 'util/';
-import { Closing } from 'components/common';
 import { S } from './styled';
 import logo from 'assets/image/common/logo-white.png';
 
-const Menu = () => {
-  const [shouldClose, setShouldClose] = useState<boolean>(false);
+type PropsType = {
+  handlePageChange: (newStatus: boolean) => void;
+};
+
+const Menu = (props: PropsType) => {
+  const { handlePageChange } = props;
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const hoverColor = getMenuButtonColor(pathname);
@@ -14,12 +16,12 @@ const Menu = () => {
   const movePage = (path: string) => {
     const newPath = `/main${path}`;
     if (newPath === pathname) return;
-    setShouldClose(true);
+    handlePageChange(true);
     setTimeout(() => {
       navigate(newPath);
     }, 1000);
     setTimeout(() => {
-      setShouldClose(false);
+      handlePageChange(false);
     }, 1500);
   };
 
@@ -52,32 +54,30 @@ const Menu = () => {
   };
 
   return (
-    <Closing shouldClose={shouldClose}>
-      <S.Wrap backgroundColor={getBackgroundColor(pathname)}>
-        <S.Logo onClick={handleLogoClick} src={logo} alt='logo' />
-        <S.Line />
-        <S.ButtonsGroup>
-          <S.Button variant='text' onClick={handleBrandStoryClick} hoverColor={hoverColor}>
-            BRAND STORY
-          </S.Button>
-          <S.Button variant='text' onClick={handleJackpotFcClick} hoverColor={hoverColor}>
-            JACKPOT FC
-          </S.Button>
-          <S.Button variant='text' onClick={handleLeadershipClick} hoverColor={hoverColor}>
-            LEADERSHIP
-          </S.Button>
-          <S.Button variant='text' onClick={handlePartnershipClick} hoverColor={hoverColor}>
-            PARTNERSHIP
-          </S.Button>
-          <S.Button variant='text' onClick={handlePressMediaClick} hoverColor={hoverColor}>
-            PRESS · MEDIA
-          </S.Button>
-          <S.Button variant='text' onClick={handleContactClick} hoverColor={hoverColor}>
-            CONTACT
-          </S.Button>
-        </S.ButtonsGroup>
-      </S.Wrap>
-    </Closing>
+    <S.Wrap backgroundColor={getBackgroundColor(pathname)}>
+      <S.Logo onClick={handleLogoClick} src={logo} alt='logo' />
+      <S.Line />
+      <S.ButtonsGroup>
+        <S.Button variant='text' onClick={handleBrandStoryClick} hoverColor={hoverColor}>
+          BRAND STORY
+        </S.Button>
+        <S.Button variant='text' onClick={handleJackpotFcClick} hoverColor={hoverColor}>
+          JACKPOT FC
+        </S.Button>
+        <S.Button variant='text' onClick={handleLeadershipClick} hoverColor={hoverColor}>
+          LEADERSHIP
+        </S.Button>
+        <S.Button variant='text' onClick={handlePartnershipClick} hoverColor={hoverColor}>
+          PARTNERSHIP
+        </S.Button>
+        <S.Button variant='text' onClick={handlePressMediaClick} hoverColor={hoverColor}>
+          PRESS · MEDIA
+        </S.Button>
+        <S.Button variant='text' onClick={handleContactClick} hoverColor={hoverColor}>
+          CONTACT
+        </S.Button>
+      </S.ButtonsGroup>
+    </S.Wrap>
   );
 };
 

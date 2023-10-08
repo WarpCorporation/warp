@@ -11,7 +11,12 @@ import { PressMedia } from './pressMedia';
 import { Contact } from './contact';
 import { Loading } from 'components/common';
 
-const Main = () => {
+type PropsType = {
+  handlePageChange: (newStatus: boolean) => void;
+};
+
+const Main = (props: PropsType) => {
+  const { handlePageChange } = props;
   const [currentPathname, setCurrentPathname] = useState<string>('');
   const { i18n } = useTranslation();
   const { pathname } = useLocation();
@@ -31,7 +36,7 @@ const Main = () => {
     <Suspense fallback={<Loading />}>
       <Loading pathname={currentPathname}>
         <>
-          <Menu />
+          <Menu handlePageChange={handlePageChange} />
           <Routes>
             <Route path='/' element={<Intro />} />
             <Route path='/brand-story' element={<BrandStory />} />

@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { GlobalStyles, styled } from '@mui/material';
-import { Wrap } from 'components/common';
+import { Closing, Wrap } from 'components/common';
 import { Intro } from 'components/intro';
 import { Main } from 'components/main';
 import { palette, screen } from 'constants/';
@@ -10,11 +10,16 @@ import logo from 'assets/image/common/logo-white.png';
 import './language/i18n';
 
 function App() {
+  const [shouldClose, setShouldClose] = useState<boolean>(false);
   const queryClient = new QueryClient();
 
   const preloadLogo = () => {
     const img = new Image();
     img.src = logo;
+  };
+
+  const handlePageChange = (newStatus: boolean) => {
+    setShouldClose(newStatus);
   };
 
   useEffect(() => {
@@ -27,10 +32,12 @@ function App() {
         <Wrap>
           <Content>
             <GlobalStyles styles={scrollbarDesign} />
-            <Routes>
-              <Route path='/' element={<Intro />} />
-              <Route path='/main/*' element={<Main />} />
-            </Routes>
+            <Closing shouldClose={shouldClose}>
+              <Routes>
+                <Route path='/' element={<Intro handlePageChange={handlePageChange} />} />
+                <Route path='/main/*' element={<Main handlePageChange={handlePageChange} />} />
+              </Routes>
+            </Closing>
           </Content>
         </Wrap>
       </QueryClientProvider>
