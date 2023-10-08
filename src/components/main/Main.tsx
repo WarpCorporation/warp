@@ -1,7 +1,6 @@
 import { Suspense, useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Menu } from './menu';
 import { Intro } from './intro';
 import { BrandStory } from './brandStory';
 import { JackpotFc } from './jackpotFc';
@@ -9,7 +8,7 @@ import { Leadership } from './leadership';
 import { Partnership } from './partnership';
 import { PressMedia } from './pressMedia';
 import { Contact } from './contact';
-import { Loading } from 'components/common';
+import { Menu, Loading } from 'components/common';
 
 type PropsType = {
   handlePageChange: (newStatus: boolean) => void;

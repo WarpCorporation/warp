@@ -1,4 +1,6 @@
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import { atom } from 'recoil/atom';
 import { getBackgroundColor, getMenuButtonColor } from 'util/';
 import { S } from './styled';
 import logo from 'assets/image/common/logo-white.png';
@@ -10,6 +12,7 @@ type PropsType = {
 const Menu = (props: PropsType) => {
   const { handlePageChange } = props;
   const navigate = useNavigate();
+  const { type } = useRecoilValue(atom.screen);
   const { pathname } = useLocation();
   const hoverColor = getMenuButtonColor(pathname);
 
@@ -53,11 +56,13 @@ const Menu = (props: PropsType) => {
     movePage('/contact');
   };
 
+  const ButtonsGroup = type === 'mobile' ? S.Scroll : S.ButtonsGroup;
+
   return (
-    <S.Wrap backgroundColor={getBackgroundColor(pathname)}>
+    <S.Wrap backgroundColor={getBackgroundColor(pathname)} isMobile={type === 'mobile'}>
       <S.Logo onClick={handleLogoClick} src={logo} alt='logo' />
-      <S.Line />
-      <S.ButtonsGroup>
+      {type !== 'mobile' && <S.Line />}
+      <ButtonsGroup horizontal>
         <S.Button variant='text' onClick={handleBrandStoryClick} hoverColor={hoverColor}>
           BRAND STORY
         </S.Button>
@@ -76,7 +81,8 @@ const Menu = (props: PropsType) => {
         <S.Button variant='text' onClick={handleContactClick} hoverColor={hoverColor}>
           CONTACT
         </S.Button>
-      </S.ButtonsGroup>
+      </ButtonsGroup>
+      {type === 'mobile' && <S.Line isMobile />}
     </S.Wrap>
   );
 };
