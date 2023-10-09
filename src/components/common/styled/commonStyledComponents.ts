@@ -10,18 +10,20 @@ export const PageWrap = styled('div')({
 });
 
 export const Background = styled('img', {
-  shouldForwardProp: (prop: string) => !['height', 'transform'].includes(prop),
-})<{ height?: string; transform?: string }>(({ height = '100%', transform }) => ({
-  position: 'absolute',
-  bottom: 0,
-  left: 0,
-  width: '100%',
-  minWidth: screen.backgroundMinWidth,
-  height,
-  transform,
-  zIndex: 1,
-  overflow: 'hidden',
-}));
+  shouldForwardProp: (prop: string) => !['height', 'transform', 'minWidth'].includes(prop),
+})<{ height?: string; transform?: string; minWidth?: string }>(
+  ({ height = '100%', transform, minWidth = screen.backgroundMinWidth }) => ({
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    width: '100%',
+    minWidth,
+    height,
+    transform,
+    zIndex: 1,
+    overflow: 'hidden',
+  })
+);
 
 export const DummySpace = styled('div')({
   width: '100%',

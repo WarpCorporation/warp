@@ -19,7 +19,7 @@ export const Text = styled('div', {
   height,
   fontSize,
   fontWeight: isEn ? 300 : 100,
-  letterSpacing: '0.05rem',
+  letterSpacing: `${isEn ? 0.025 : 0.05}rem`,
   transform: `translateY(${top})`,
   whiteSpace: 'break-spaces',
   zIndex: 5,
