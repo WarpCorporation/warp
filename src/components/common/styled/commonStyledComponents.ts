@@ -7,6 +7,7 @@ export const PageWrap = styled('div')({
   width: '100vw',
   minWidth: screen.minWidth,
   height: '100%',
+  overflow: 'hidden',
 });
 
 export const Background = styled('img', {
