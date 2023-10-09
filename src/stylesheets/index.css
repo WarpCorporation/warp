@@ -152,6 +152,8 @@ code {
 }
 
 .main-intro-bg-animation {
+  max-width: 100vw;
+  overflow: hidden;
   animation: move-background 1750ms ease-out;
 }
 
