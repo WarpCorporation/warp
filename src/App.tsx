@@ -54,6 +54,8 @@ function App() {
 export default App;
 
 const Content = styled('div')({
+  display: 'flex',
+  flexDirection: 'column',
   width: '100%',
   minWidth: screen.minWidth,
   maxWidth: screen.maxWidth,
