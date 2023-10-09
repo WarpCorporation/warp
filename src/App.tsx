@@ -58,8 +58,10 @@ const Content = styled('div')({
   flexDirection: 'column',
   width: '100%',
   minWidth: screen.minWidth,
-  maxWidth: screen.maxWidth,
+  maxWidth: '100vw',
   height: '100%',
+  maxHeight: '100vh',
+  overflow: 'hidden',
 });
 
 const scrollbarDesign = {

@@ -6,7 +6,9 @@ export const PageWrap = styled('div')({
   justifyContent: 'center',
   width: '100vw',
   minWidth: screen.minWidth,
+  maxWidth: '100vw',
   height: '100%',
+  maxHeight: '100vh',
   overflow: 'hidden',
 });
 
@@ -19,6 +21,7 @@ export const Background = styled('img', {
     left: 0,
     width: '100%',
     minWidth,
+    maxWidth: '100vw',
     height,
     minHeight: '24rem',
     transform,
