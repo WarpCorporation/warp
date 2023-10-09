@@ -3,13 +3,13 @@ import { palette, screen } from 'constants/';
 
 export const Wrap = styled('div')({
   display: 'flex',
+  flexGrow: 1,
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
   padding: '1.5rem 0',
   width: '100vw',
   minWidth: screen.minWidth,
-  minHeight: '38.75rem',
   '&& img': { minWidth: '9rem' },
 });
 
@@ -32,7 +32,7 @@ export const InfoWrap = styled('span')({
 
 export const Key = styled('div')({
   margin: '0.75rem 4rem 0.75rem 0',
-  fontWeight: 700,
+  fontWeight: 800,
   textAlign: 'end',
 });
 
@@ -45,4 +45,27 @@ export const Prop = styled('div')({
 export const Divider = styled(D)({
   height: '15.5rem',
   borderColor: palette.magenta,
+});
+
+export const MobileWrap = styled('div')({
+  display: 'flex',
+  flexGrow: 1,
+  flexDirection: 'column',
+  justifyContent: 'center',
+  width: '90vw',
+  gap: '2rem',
+});
+
+export const MobileRow = styled('div')({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+});
+
+export const MobileKey = styled('span')({
+  fontWeight: 800,
+});
+
+export const MobileProp = styled('span')({
+  fontWeight: 500,
 });

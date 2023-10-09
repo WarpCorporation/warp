@@ -1,6 +1,10 @@
 import { useMemo } from 'react';
 import { useImageQuery } from 'lib';
-import { Header } from 'components/common';
+import { useRecoilValue } from 'recoil';
+import { atom } from 'recoil/atom';
+import { Header, MobileHeader } from 'components/common';
+import ContactPc from './ContactPc';
+import ContactMobile from './ContactMobile';
 import { S } from './styled';
 import warpLogo from 'assets/image/common/logo-black.png';
 
@@ -20,25 +24,20 @@ const Contact = () => {
     ],
     []
   );
+  const { type } = useRecoilValue(atom.screen);
+  const title = 'CONTACT';
 
   return (
     <>
-      <Header title='CONTACT' />
+      <Header title={title} />
       <S.Wrap>
-        <S.Logo src={logo} alt='warp' />
-        <S.ContactInfo>
-          <S.InfoWrap>
-            {contactKeys.map((contactKey) => (
-              <S.Key key={contactKey}>{contactKey}</S.Key>
-            ))}
-          </S.InfoWrap>
-          <S.Divider orientation='vertical' />
-          <S.InfoWrap>
-            {contactProps.map((contactProp) => (
-              <S.Prop key={contactProp}>{contactProp}</S.Prop>
-            ))}
-          </S.InfoWrap>
-        </S.ContactInfo>
+        <MobileHeader title={title} />
+        {type !== 'mobile' && <S.Logo src={logo} alt='warp' />}
+        {type !== 'mobile' ? (
+          <ContactPc contactKeys={contactKeys} contactProps={contactProps} />
+        ) : (
+          <ContactMobile contactKeys={contactKeys} contactProps={contactProps} />
+        )}
       </S.Wrap>
     </>
   );
