@@ -1,3 +1,5 @@
+import { useRecoilValue } from 'recoil';
+import { atom } from 'recoil/atom';
 import { S } from './styled';
 
 type PropsType = {
@@ -6,13 +8,12 @@ type PropsType = {
 
 const Header = (props: PropsType) => {
   const { title } = props;
+  const { type } = useRecoilValue(atom.screen);
 
   return (
     <>
-      <S.DummySpace />
-      <S.Content>
-        <span>{title}</span>
-      </S.Content>
+      <S.DummySpace type={type} />
+      <S.Content type={type}>{type !== 'mobile' && <span>{title}</span>}</S.Content>
     </>
   );
 };
