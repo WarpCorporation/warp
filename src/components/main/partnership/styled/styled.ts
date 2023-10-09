@@ -1,50 +1,63 @@
 import { Divider, styled } from '@mui/material';
-import { palette, screen } from 'constants/';
+import { palette } from 'constants/';
+import { ScreenType } from 'recoil/atom';
 
-export const Wrap = styled('div')({
+export const Wrap = styled('div', {
+  shouldForwardProp: (prop: string) => prop !== 'type',
+})<{ type: ScreenType }>(({ type }) => ({
   display: 'flex',
+  flexGrow: 1,
   flexDirection: 'column',
   alignItems: 'center',
+  justifyContent: 'center',
   width: '100vw',
-  minWidth: screen.minWidth,
-  height: 'calc(100vh - 25.5rem)',
-  '&& img': { minWidth: '58rem' },
-});
+  overflow: type === 'mobile' ? 'hidden' : 'hidden auto',
+  '&& img': { minWidth: type === 'mobile' ? '75vw' : '58rem' },
+}));
 
-export const TitleWrap = styled('div')({
+export const TitleWrap = styled('div', {
+  shouldForwardProp: (prop: string) => prop !== 'type',
+})<{ type: ScreenType }>(({ type }) => ({
   display: 'flex',
   alignItems: 'center',
-  paddingTop: '4.5rem',
-  gap: '2rem',
-});
+  paddingTop: type === 'mobile' ? 0 : '4.5rem',
+  width: type === 'mobile' ? '90vw' : '58rem',
+  gap: `${type === 'mobile' ? 1 : 2}rem`,
+}));
 
-export const Title = styled('span')({
+export const Title = styled('span', {
+  shouldForwardProp: (prop: string) => prop !== 'type',
+})<{ type: ScreenType }>(({ type }) => ({
   color: palette.magenta,
-  fontSize: '1.5rem',
+  fontSize: `${type === 'mobile' ? 0.875 : 1.5}rem`,
   fontWeight: 600,
-});
+}));
 
 export const TopDivider = styled(Divider, {
-  shouldForwardProp: (prop: string) => prop !== 'dir',
-})<{ dir: 'left' | 'right' }>(({ dir }) => ({
+  shouldForwardProp: (prop: string) => !['dir', 'type'].includes(prop),
+})<{ dir: 'left' | 'right'; type: ScreenType }>(({ dir, type }) => ({
+  flexGrow: 1,
   border: '1px solid',
   borderImageSource: `linear-gradient(to ${dir}, ${palette.magenta}, ${palette.white})`,
   borderImageSlice: 1,
-  width: '25rem',
 }));
 
-export const Logos = styled('img')({
-  margin: '4rem 0',
-  width: '58rem',
-  height: '21.75rem',
-});
+export const Logos = styled('img', {
+  shouldForwardProp: (prop: string) => prop !== 'type',
+})<{ type: ScreenType }>(({ type }) => ({
+  margin: `${type === 'mobile' ? 2 : 4}rem 0`,
+  width: type === 'mobile' ? '75vw' : '58rem',
+  height: type === 'mobile' ? '45vh' : '21.75rem',
+}));
 
-export const BottomDivider = styled(Divider)({
+export const BottomDivider = styled(Divider, {
+  shouldForwardProp: (prop: string) => prop !== 'type',
+})<{ type: ScreenType }>(({ type }) => ({
   border: '1px solid',
   borderImageSource: `linear-gradient(to left, ${palette.white}, ${palette.magenta}, ${palette.white})`,
   borderImageSlice: 1,
-  width: '64.125rem',
-});
+  width: type === 'mobile' ? '90vw' : '64.125rem',
+}));
 
 export const WhiteSpace = styled('div')({
   width: '100%',
