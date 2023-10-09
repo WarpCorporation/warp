@@ -9,7 +9,7 @@ export const Wrap = styled('div', {
   display: 'flex',
   flexGrow: 1,
   justifyContent: 'center',
-  padding: `${type === 'mobile' ? 2.5 : 4.5}rem 0`,
+  padding: `${type !== 'pc' ? 2.5 : 4.5}rem 0`,
   width: '100vw',
   minWidth: screen.minWidth,
   overflow: 'hidden auto',
@@ -20,8 +20,8 @@ export const CardWrap = styled('div', {
 })<{ type: ScreenType }>(({ type }) => ({
   display: 'flex',
   flexDirection: 'column',
-  width: type === 'mobile' ? '90vw' : '64rem',
-  minWidth: type === 'mobile' ? '90vw' : '64rem',
+  width: type !== 'pc' ? '90vw' : '64rem',
+  minWidth: type !== 'pc' ? '90vw' : '64rem',
 }));
 
 export const Card = styled('div')({
@@ -35,12 +35,12 @@ export const CardRow = styled('div', {
   shouldForwardProp: (prop: string) => prop !== 'type',
 })<{ type: ScreenType }>(({ type }) => ({
   display: 'flex',
-  flexDirection: type === 'mobile' ? 'column' : 'row',
-  alignItems: type === 'mobile' ? 'center' : 'flex-end',
+  flexDirection: type !== 'pc' ? 'column' : 'row',
+  alignItems: type !== 'pc' ? 'center' : 'flex-end',
   justifyContent: 'space-between',
   width: '100%',
-  textAlign: type === 'mobile' ? 'center' : 'unset',
-  gap: `${type === 'mobile' ? 0.5 : 0}rem`,
+  textAlign: type !== 'pc' ? 'center' : 'unset',
+  gap: `${type !== 'pc' ? 0.5 : 0}rem`,
 }));
 
 export const Title = styled('span')({
@@ -64,7 +64,7 @@ export const Description = styled('div', {
   width: '100%',
   fontSize: '1rem',
   fontWeight: 500,
-  textAlign: type === 'mobile' ? 'center' : 'unset',
+  textAlign: type !== 'pc' ? 'center' : 'unset',
 }));
 
 export const ButtonWrap = styled('div', {
@@ -72,7 +72,7 @@ export const ButtonWrap = styled('div', {
 })<{ type: ScreenType }>(({ type }) => ({
   display: 'flex',
   alignItems: 'center',
-  justifyContent: type === 'mobile' ? 'center' : 'flex-end',
+  justifyContent: type !== 'pc' ? 'center' : 'flex-end',
   marginTop: '1rem',
   color: palette.magenta,
   gap: '0.5rem',

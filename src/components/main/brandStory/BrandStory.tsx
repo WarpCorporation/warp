@@ -22,7 +22,7 @@ const BrandStory = () => {
   const { type } = useRecoilValue(atom.screen);
   const imageProps = useMemo(
     () => ({
-      src: type !== 'mobile' ? brandStoryImage : brandStoryMobileImage,
+      src: type === 'pc' ? brandStoryImage : brandStoryMobileImage,
       alt: 'brand-story-bg',
     }),
     [type, brandStoryImage, brandStoryMobileImage]
@@ -30,16 +30,16 @@ const BrandStory = () => {
 
   useEffect(() => {
     if (!width) return;
-    setPcTextCenter(type !== 'mobile' && width < 1500);
+    setPcTextCenter(type === 'pc' && width < 1500);
   }, [width, type]);
 
   return (
     <CSC.PageWrap ref={ref}>
-      {type !== 'mobile' && <CSC.Background {...imageProps} />}
+      {type === 'pc' && <CSC.Background {...imageProps} />}
       <S.ContentWrap type={type}>
         <CSC.DummySpace />
-        <S.TextWrap pcTextCenter={pcTextCenter} mobileTextCenter={type === 'mobile'}>
-          {type === 'mobile' && <S.MobileImage {...imageProps} />}
+        <S.TextWrap pcTextCenter={pcTextCenter} mobileTextCenter={type !== 'pc'}>
+          {type !== 'pc' && <S.MobileImage {...imageProps} />}
           <S.Title>Brand Story</S.Title>
           <S.Divider orientation='vertical' />
           <S.Content type={type}>{t('brand-story-01')}</S.Content>
@@ -51,7 +51,7 @@ const BrandStory = () => {
           {t('brand-story-07') && <S.Content type={type}>{t('brand-story-07')}</S.Content>}
           {t('brand-story-08') && <S.Content type={type}>{t('brand-story-08')}</S.Content>}
           {t('brand-story-09') && <S.Content type={type}>{t('brand-story-09')}</S.Content>}
-          <S.Logo type={type} src={type === 'mobile' ? whiteLogo : blackLogo} alt='warp' />
+          <S.Logo type={type} src={type !== 'pc' ? whiteLogo : blackLogo} alt='warp' />
         </S.TextWrap>
       </S.ContentWrap>
     </CSC.PageWrap>

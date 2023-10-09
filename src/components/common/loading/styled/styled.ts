@@ -41,7 +41,7 @@ export const TopWrap = styled('div')({
   height: '50vh',
   backgroundColor: palette.dark,
   overflow: 'hidden',
-  zIndex: 10,
+  zIndex: 20,
   transform: 'translateY(-50vh)',
   opacity: 0,
 });
@@ -52,7 +52,7 @@ export const Divider = styled(D)({
   left: 0,
   width: '100vw',
   border: `1px solid ${palette.white}`,
-  zIndex: 20,
+  zIndex: 25,
   transform: 'translateY(-50vh)',
   opacity: 0,
 });
@@ -65,7 +65,7 @@ export const BottomWrap = styled('div')({
   height: '50vh',
   backgroundColor: palette.dark,
   overflow: 'hidden',
-  zIndex: 10,
+  zIndex: 20,
   transform: 'translateY(50vh)',
   opacity: 0,
 });

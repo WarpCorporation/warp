@@ -8,8 +8,8 @@ export const DummySpace = styled('div', {
 })<{ type: ScreenType }>(({ type }) => ({
   width: '100%',
   minWidth: screen.minWidth,
-  height: `${type === 'mobile' ? 9.5 : 16.5}rem`,
-  minHeight: `${type === 'mobile' ? 9.5 : 16.5}rem`,
+  height: `${type !== 'pc' ? 9.5 : 16.5}rem`,
+  minHeight: `${type !== 'pc' ? 9.5 : 16.5}rem`,
   backgroundColor: 'transparent',
 }));
 
@@ -24,7 +24,7 @@ export const Content = styled('div', {
   alignItems: 'center',
   width: '100vw',
   minWidth: screen.minWidth,
-  height: `${type === 'mobile' ? 9.5 : 16.5}rem`,
+  height: `${type !== 'pc' ? 9.5 : 16.5}rem`,
   color: palette.white,
   fontSize: '1.5rem',
   fontWeight: 500,

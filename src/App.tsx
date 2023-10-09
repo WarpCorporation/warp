@@ -17,7 +17,7 @@ function App() {
   const queryClient = new QueryClient();
   const useSetScreenType = useSetRecoilState(atom.screen);
   const { ref, width = 1920 } = useResizeObserver();
-  useSetScreenType({ width, type: width < 768 ? 'mobile' : width < 1024 ? 'tablet' : 'pc' });
+  useSetScreenType({ width, type: width < 768 ? 'mobile' : width < 1280 ? 'tablet' : 'pc' });
 
   const preloadLogo = () => {
     const img = new Image();

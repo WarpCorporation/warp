@@ -31,19 +31,21 @@ const JackpotFc = () => {
       <S.Content type={type}>
         <CSC.DummySpace />
         {type === 'mobile' && <S.MobileImage {...imageProps} />}
-        {type === 'mobile' && <S.JackpotFcText type='mobile'>JACKPOT FC</S.JackpotFcText>}
-        <S.TextWrap>
-          <S.Text {...textProps}>{t('jackpot-fc-01')}</S.Text>
-          <S.Text {...textProps}>{t('jackpot-fc-02')}</S.Text>
-          <S.Text {...textProps}>{t('jackpot-fc-03')}</S.Text>
-          {t('jackpot-fc-04') && <S.Text {...textProps}>{t('jackpot-fc-04')}</S.Text>}
-          {t('jackpot-fc-05') && <S.Text {...textProps}>{t('jackpot-fc-05')}</S.Text>}
-          {t('jackpot-fc-06') && <S.Text {...textProps}>{t('jackpot-fc-06')}</S.Text>}
-          {t('jackpot-fc-07') && <S.Text {...textProps}>{t('jackpot-fc-07')}</S.Text>}
-          {t('jackpot-fc-08') && <S.Text {...textProps}>{t('jackpot-fc-08')}</S.Text>}
-          {t('jackpot-fc-09') && <S.Text {...textProps}>{t('jackpot-fc-09')}</S.Text>}
-        </S.TextWrap>
-        {type !== 'mobile' && <S.JackpotFcText type='pc'>JACKPOT FC</S.JackpotFcText>}
+        {type === 'mobile' && <S.JackpotFcText type={type}>JACKPOT FC</S.JackpotFcText>}
+        <S.ContentWrap>
+          <S.TextWrap>
+            <S.Text {...textProps}>{t('jackpot-fc-01')}</S.Text>
+            <S.Text {...textProps}>{t('jackpot-fc-02')}</S.Text>
+            <S.Text {...textProps}>{t('jackpot-fc-03')}</S.Text>
+            {t('jackpot-fc-04') && <S.Text {...textProps}>{t('jackpot-fc-04')}</S.Text>}
+            {t('jackpot-fc-05') && <S.Text {...textProps}>{t('jackpot-fc-05')}</S.Text>}
+            {t('jackpot-fc-06') && <S.Text {...textProps}>{t('jackpot-fc-06')}</S.Text>}
+            {t('jackpot-fc-07') && <S.Text {...textProps}>{t('jackpot-fc-07')}</S.Text>}
+            {t('jackpot-fc-08') && <S.Text {...textProps}>{t('jackpot-fc-08')}</S.Text>}
+            {t('jackpot-fc-09') && <S.Text {...textProps}>{t('jackpot-fc-09')}</S.Text>}
+          </S.TextWrap>
+          {type !== 'mobile' && <S.JackpotFcText type={type}>JACKPOT FC</S.JackpotFcText>}
+        </S.ContentWrap>
       </S.Content>
     </CSC.PageWrap>
   );

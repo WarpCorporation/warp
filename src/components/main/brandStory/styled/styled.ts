@@ -12,14 +12,13 @@ export const ContentWrap = styled('div', {
   flexDirection: 'column',
   width: '100vw',
   height: '100vh',
-  overflow: type === 'mobile' ? 'hidden auto' : 'hidden',
+  overflow: type !== 'pc' ? 'hidden auto' : 'hidden',
 }));
 
 export const MobileImage = styled('img')({
   marginBottom: '3.75rem',
   width: '100%',
   height: '18rem',
-  transform: 'translateY(1rem)',
 });
 
 export const TextWrap = styled('div', {
@@ -32,7 +31,7 @@ export const TextWrap = styled('div', {
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  padding: '1.5rem 0',
+  padding: '0.5rem 0',
   minWidth: screen.minWidth,
   zIndex: 2,
   '& span, hr, img, p': { marginRight: `${mobileTextCenter ? 0 : pcTextCenter ? 32.5 : 50}rem` },
@@ -57,12 +56,12 @@ export const Content = styled('p', {
 })<{ type: ScreenType }>(({ type }) => ({
   margin: '0.5rem 0',
   width: 'fit-content',
-  minWidth: type === 'mobile' ? '75vw' : '45rem',
+  minWidth: type !== 'pc' ? '75vw' : '45rem',
   maxWidth: '75vw',
-  color: palette[type === 'mobile' ? 'white' : 'black'],
+  color: palette[type !== 'pc' ? 'white' : 'black'],
   fontWeight: 500,
   lineHeight: '1.25rem',
-  whiteSpace: type === 'mobile' ? 'normal' : 'pre',
+  whiteSpace: type !== 'pc' ? 'normal' : 'pre',
   textAlign: 'center',
   wordBreak: 'keep-all',
 }));
@@ -70,7 +69,7 @@ export const Content = styled('p', {
 export const Logo = styled('img', {
   shouldForwardProp: (prop: string) => prop !== 'type',
 })<{ type: ScreenType }>(({ type }) => ({
-  marginTop: '1.5rem',
-  width: `${type === 'mobile' ? 8 : 9.25}rem`,
-  height: `${type === 'mobile' ? 1.875 : 2.5}rem`,
+  margin: '1.5rem 0 1rem',
+  width: `${type !== 'pc' ? 8 : 9.25}rem`,
+  height: `${type !== 'pc' ? 1.875 : 2.5}rem`,
 }));

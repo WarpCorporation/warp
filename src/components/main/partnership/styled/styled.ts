@@ -11,8 +11,8 @@ export const Wrap = styled('div', {
   alignItems: 'center',
   justifyContent: 'center',
   width: '100vw',
-  overflow: type === 'mobile' ? 'hidden' : 'hidden auto',
-  '&& img': { minWidth: type === 'mobile' ? '75vw' : '58rem' },
+  overflow: 'hidden auto',
+  '&& img': { minWidth: type !== 'pc' ? '75vw' : '58rem' },
 }));
 
 export const TitleWrap = styled('div', {
@@ -20,16 +20,16 @@ export const TitleWrap = styled('div', {
 })<{ type: ScreenType }>(({ type }) => ({
   display: 'flex',
   alignItems: 'center',
-  paddingTop: type === 'mobile' ? 0 : '4.5rem',
-  width: type === 'mobile' ? '90vw' : '58rem',
-  gap: `${type === 'mobile' ? 1 : 2}rem`,
+  paddingTop: type !== 'pc' ? 0 : '4.5rem',
+  width: type !== 'pc' ? '90vw' : '58rem',
+  gap: `${type !== 'pc' ? 1 : 2}rem`,
 }));
 
 export const Title = styled('span', {
   shouldForwardProp: (prop: string) => prop !== 'type',
 })<{ type: ScreenType }>(({ type }) => ({
   color: palette.magenta,
-  fontSize: `${type === 'mobile' ? 0.875 : 1.5}rem`,
+  fontSize: `${type !== 'pc' ? 0.875 : 1.5}rem`,
   fontWeight: 600,
 }));
 
@@ -45,9 +45,9 @@ export const TopDivider = styled(Divider, {
 export const Logos = styled('img', {
   shouldForwardProp: (prop: string) => prop !== 'type',
 })<{ type: ScreenType }>(({ type }) => ({
-  margin: `${type === 'mobile' ? 2 : 4}rem 0`,
-  width: type === 'mobile' ? '75vw' : '58rem',
-  height: type === 'mobile' ? '45vh' : '21.75rem',
+  margin: `${type !== 'pc' ? 2 : 4}rem 0`,
+  width: type !== 'pc' ? '75vw' : '58rem',
+  height: `${type !== 'pc' ? 20 : 21.75}rem`,
 }));
 
 export const BottomDivider = styled(Divider, {
@@ -56,7 +56,7 @@ export const BottomDivider = styled(Divider, {
   border: '1px solid',
   borderImageSource: `linear-gradient(to left, ${palette.white}, ${palette.magenta}, ${palette.white})`,
   borderImageSlice: 1,
-  width: type === 'mobile' ? '90vw' : '64.125rem',
+  width: type !== 'pc' ? '90vw' : '64.125rem',
 }));
 
 export const WhiteSpace = styled('div')({

@@ -8,7 +8,7 @@ export const Wrap = styled('div', {
   display: 'flex',
   flexGrow: 1,
   justifyContent: 'center',
-  padding: `${type === 'mobile' ? 2.5 : 4.5}rem 0`,
+  padding: `${type !== 'pc' ? 2.5 : 4.5}rem 0`,
   width: '100vw',
   minWidth: screen.minWidth,
   overflow: 'hidden auto',
@@ -26,7 +26,7 @@ export const Card = styled('div', {
   shouldForwardProp: (prop: string) => prop !== 'type',
 })<{ type: ScreenType }>(({ type }) => ({
   display: 'flex',
-  flexDirection: type === 'mobile' ? 'column' : 'row',
+  flexDirection: type !== 'pc' ? 'column' : 'row',
   alignItems: 'center',
   gap: '2rem',
   '&& img': { minWidth: '13rem', maxWidth: '13rem' },
@@ -42,7 +42,7 @@ export const Information = styled('div', {
 })<{ type: ScreenType }>(({ type }) => ({
   display: 'flex',
   flexDirection: 'column',
-  alignItems: type === 'mobile' ? 'center' : 'flex-start',
+  alignItems: type !== 'pc' ? 'center' : 'flex-start',
   justifyContent: 'flex-end',
   width: 'fit-content',
   whiteSpace: 'pre',
@@ -60,7 +60,7 @@ export const Names = styled('div')({
 export const Position = styled('div', {
   shouldForwardProp: (prop: string) => prop !== 'type',
 })<{ type: ScreenType }>(({ type }) => ({
-  margin: `0.5rem 0 ${type === 'mobile' ? '1rem' : 0}`,
+  margin: `0.5rem 0 ${type !== 'pc' ? '1rem' : 0}`,
   color: palette.magenta,
   fontSize: '1rem',
   fontWeight: 500,
@@ -77,11 +77,11 @@ export const Divider = styled(D)({
 export const Description = styled('div', {
   shouldForwardProp: (prop: string) => prop !== 'type',
 })<{ type: ScreenType }>(({ type }) => ({
-  minWidth: type === 'mobile' ? '75vw' : '45rem',
+  minWidth: type !== 'pc' ? '75vw' : '45rem',
   maxWidth: '75vw',
   fontSize: '0.75rem',
   fontWeight: 500,
-  textAlign: type === 'mobile' ? 'center' : 'unset',
+  textAlign: type !== 'pc' ? 'center' : 'unset',
   whiteSpace: 'normal',
   wordBreak: 'keep-all',
 }));

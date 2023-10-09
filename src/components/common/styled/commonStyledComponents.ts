@@ -19,6 +19,7 @@ export const Background = styled('img', {
     width: '100%',
     minWidth,
     height,
+    minHeight: '24rem',
     transform,
     zIndex: 1,
     overflow: 'hidden',
@@ -27,8 +28,8 @@ export const Background = styled('img', {
 
 export const DummySpace = styled('div')({
   width: '100%',
-  minHeight: '7rem',
-  height: '7rem',
+  minHeight: '9.5rem',
+  height: '9.5rem',
 });
 
 export const Closing = styled('div', {

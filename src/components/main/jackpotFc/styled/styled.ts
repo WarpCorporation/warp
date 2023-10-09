@@ -9,10 +9,10 @@ export const Content = styled('div', {
   top: 0,
   left: 0,
   display: 'flex',
+  flexGrow: 1,
   flexDirection: 'column',
   alignItems: 'center',
   width: '100%',
-  height: 'auto',
   overflow: type === 'mobile' ? 'hidden auto' : 'hidden',
 }));
 
@@ -20,7 +20,6 @@ export const TextWrap = styled('div')({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  padding: '3rem 0',
   width: '37.5rem',
   maxHeight: '85%',
   zIndex: 5,
@@ -30,6 +29,14 @@ export const MobileImage = styled('img')({
   marginBottom: '-2.5rem',
   width: '100%',
   height: '18rem',
+});
+
+export const ContentWrap = styled('div')({
+  display: 'flex',
+  flexGrow: 1,
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  padding: '3rem 0',
 });
 
 export const Text = styled('p', {
@@ -50,7 +57,7 @@ export const Text = styled('p', {
 export const JackpotFcText = styled('span', {
   shouldForwardProp: (prop: string) => prop !== 'type',
 })<{ type: ScreenType }>(({ type }) => ({
-  marginTop: `${type === 'mobile' ? 0 : 22}rem`,
+  marginTop: `${type === 'pc' ? 35 : type === 'tablet' ? 20 : 0}vh`,
   width: '37.5rem',
   color: palette.white,
   fontSize: `${type === 'mobile' ? 2.5 : 3}rem`,

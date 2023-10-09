@@ -56,13 +56,13 @@ const Menu = (props: PropsType) => {
     movePage('/contact');
   };
 
-  const ButtonsGroup = type === 'mobile' ? S.Scroll : S.ButtonsGroup;
+  const ButtonsGroup = type !== 'pc' ? S.Scroll : S.ButtonsGroup;
 
   return (
-    <S.Wrap backgroundColor={getBackgroundColor(pathname)} isMobile={type === 'mobile'}>
+    <S.Wrap backgroundColor={getBackgroundColor(pathname)} isMobile={type !== 'pc'}>
       <S.Logo onClick={handleLogoClick} src={logo} alt='logo' />
-      {type !== 'mobile' && <S.Line />}
-      <ButtonsGroup horizontal>
+      {type === 'pc' && <S.Line />}
+      <ButtonsGroup horizontal type={type}>
         <S.Button variant='text' onClick={handleBrandStoryClick} hoverColor={hoverColor}>
           BRAND STORY
         </S.Button>
@@ -82,7 +82,7 @@ const Menu = (props: PropsType) => {
           CONTACT
         </S.Button>
       </ButtonsGroup>
-      {type === 'mobile' && <S.Line isMobile />}
+      {type !== 'pc' && <S.Line isMobile />}
     </S.Wrap>
   );
 };

@@ -13,7 +13,7 @@ const Header = (props: PropsType) => {
   return (
     <>
       <S.DummySpace type={type} />
-      <S.Content type={type}>{type !== 'mobile' && <span>{title}</span>}</S.Content>
+      <S.Content type={type}>{type === 'pc' && <span>{title}</span>}</S.Content>
     </>
   );
 };

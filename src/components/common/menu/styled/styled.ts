@@ -1,6 +1,7 @@
 import { Button as B, Divider, styled } from '@mui/material';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import { palette, screen } from 'constants/';
+import { ScreenType } from 'recoil/atom';
 
 export const Wrap = styled('div', {
   shouldForwardProp: (prop: string) => !['backgroundColor', 'isMobile'].includes(prop),
@@ -16,7 +17,7 @@ export const Wrap = styled('div', {
   minWidth: screen.minWidth,
   height: '3rem',
   backgroundColor,
-  zIndex: 5,
+  zIndex: 10,
 }));
 
 export const Logo = styled('img')({
@@ -61,14 +62,17 @@ export const Button = styled(B, {
   '&:hover': { color: hoverColor, backgroundColor: 'transparent' },
 }));
 
-export const Scroll = styled(ScrollContainer)({
+export const Scroll = styled(ScrollContainer, {
+  shouldForwardProp: (prop: string) => prop !== 'type',
+})<{ type: ScreenType }>(({ type }) => ({
   display: 'flex',
+  justifyContent: type === 'tablet' ? 'center' : 'unset',
   padding: '1rem 2rem 0.75rem',
-  minWidth: '22rem',
-  width: '22rem',
+  minWidth: '100vw',
+  width: 'calc(100% - 4rem)',
   minHeight: '2rem',
   height: '2rem',
   gap: '1.5rem',
   cursor: 'pointer',
   '& button': { fontSize: '0.75rem' },
-});
+}));
