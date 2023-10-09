@@ -1,8 +1,10 @@
 import { Divider as D, styled } from '@mui/material';
 import { screen, palette } from 'constants/';
-import logo from 'assets/image/common/logo-black.png';
+import { ScreenType } from 'recoil/atom';
 
-export const ContentWrap = styled('div')({
+export const ContentWrap = styled('div', {
+  shouldForwardProp: (prop: string) => prop !== 'type',
+})<{ type: ScreenType }>(({ type }) => ({
   position: 'absolute',
   top: 0,
   left: 0,
@@ -10,12 +12,19 @@ export const ContentWrap = styled('div')({
   flexDirection: 'column',
   width: '100vw',
   height: '100vh',
-  overflow: 'hidden',
+  overflow: type === 'mobile' ? 'hidden auto' : 'hidden',
+}));
+
+export const MobileImage = styled('img')({
+  marginBottom: '3.75rem',
+  width: '100%',
+  height: '18rem',
+  transform: 'translateY(1rem)',
 });
 
 export const TextWrap = styled('div', {
-  shouldForwardProp: (prop: string) => prop !== 'textCenter',
-})<{ textCenter: boolean }>(({ textCenter }) => ({
+  shouldForwardProp: (prop: string) => !['pcTextCenter', 'mobileTextCenter'].includes(prop),
+})<{ pcTextCenter: boolean; mobileTextCenter: boolean }>(({ pcTextCenter, mobileTextCenter }) => ({
   position: 'relative',
   left: 0,
   display: 'flex',
@@ -26,8 +35,8 @@ export const TextWrap = styled('div', {
   padding: '1.5rem 0',
   minWidth: screen.minWidth,
   zIndex: 2,
-  '& span, hr, div, p': { marginRight: `${textCenter ? 32.5 : 50}rem` },
-  '& p': { fontSize: `${textCenter ? 0.875 : 1}rem` },
+  '& span, hr, img, p': { marginRight: `${mobileTextCenter ? 0 : pcTextCenter ? 32.5 : 50}rem` },
+  '& p': { fontSize: `${pcTextCenter ? 0.875 : 1}rem` },
 }));
 
 export const Title = styled('span')({
@@ -43,20 +52,25 @@ export const Divider = styled(D)({
   height: '2.25rem',
 });
 
-export const Content = styled('p')({
+export const Content = styled('p', {
+  shouldForwardProp: (prop: string) => prop !== 'type',
+})<{ type: ScreenType }>(({ type }) => ({
   margin: '0.5rem 0',
   width: 'fit-content',
-  minWidth: '45rem',
+  minWidth: type === 'mobile' ? '75vw' : '45rem',
+  maxWidth: '75vw',
+  color: palette[type === 'mobile' ? 'white' : 'black'],
   fontWeight: 500,
   lineHeight: '1.25rem',
-  whiteSpace: 'pre',
+  whiteSpace: type === 'mobile' ? 'normal' : 'pre',
   textAlign: 'center',
-});
+  wordBreak: 'keep-all',
+}));
 
-export const Logo = styled('div')({
+export const Logo = styled('img', {
+  shouldForwardProp: (prop: string) => prop !== 'type',
+})<{ type: ScreenType }>(({ type }) => ({
   marginTop: '1.5rem',
-  width: '9.25rem',
-  height: '2.5rem',
-  backgroundImage: `url(${logo})`,
-  backgroundSize: 'cover',
-});
+  width: `${type === 'mobile' ? 8 : 9.25}rem`,
+  height: `${type === 'mobile' ? 1.875 : 2.5}rem`,
+}));
