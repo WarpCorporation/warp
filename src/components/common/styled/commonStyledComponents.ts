@@ -16,7 +16,7 @@ export const Background = styled('img', {
   shouldForwardProp: (prop: string) => !['height', 'transform', 'minWidth'].includes(prop),
 })<{ height?: string; transform?: string; minWidth?: string }>(
   ({ height = '100%', transform, minWidth = screen.backgroundMinWidth }) => ({
-    position: 'absolute',
+    position: 'fixed',
     bottom: 0,
     left: 0,
     width: '100%',

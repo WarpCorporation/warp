@@ -54,6 +54,9 @@ function App() {
 export default App;
 
 const Content = styled('div')({
+  position: 'fixed',
+  top: 0,
+  left: 0,
   display: 'flex',
   flexDirection: 'column',
   width: '100%',
