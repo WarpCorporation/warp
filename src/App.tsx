@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { isDesktop } from 'react-device-detect';
 import { useSetRecoilState } from 'recoil';
 import { atom } from 'recoil/atom';
 import useResizeObserver from 'use-resize-observer';
@@ -14,6 +15,7 @@ import './language/i18n';
 
 function App() {
   const [shouldClose, setShouldClose] = useState<boolean>(false);
+  const wrapRef = useRef<HTMLDivElement>(null);
   const queryClient = new QueryClient();
   const useSetScreenType = useSetRecoilState(atom.screen);
   const { ref, width = 1920 } = useResizeObserver();
@@ -35,13 +37,16 @@ function App() {
   return (
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <Wrap>
-          <Content ref={ref}>
-            <GlobalStyles styles={scrollbarDesign} />
+        <Wrap wrapRef={ref}>
+          <Content ref={wrapRef}>
+            {isDesktop && <GlobalStyles styles={scrollbarDesign} />}
             <Closing shouldClose={shouldClose}>
               <Routes>
                 <Route path='/' element={<Intro handlePageChange={handlePageChange} />} />
-                <Route path='/main/*' element={<Main handlePageChange={handlePageChange} />} />
+                <Route
+                  path='/main/*'
+                  element={<Main wrapRef={wrapRef} handlePageChange={handlePageChange} />}
+                />
               </Routes>
             </Closing>
           </Content>
@@ -54,14 +59,16 @@ function App() {
 export default App;
 
 const Content = styled('div')({
+  position: 'fixed',
+  top: 0,
+  left: 0,
   display: 'flex',
   flexDirection: 'column',
   width: '100%',
   minWidth: screen.minWidth,
   maxWidth: '100vw',
   height: '100%',
-  maxHeight: '100vh',
-  overflow: 'hidden',
+  overflow: isDesktop ? 'hidden' : 'hidden auto',
 });
 
 const scrollbarDesign = {

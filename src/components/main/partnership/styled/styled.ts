@@ -1,3 +1,4 @@
+import { isDesktop } from 'react-device-detect';
 import { Divider, styled } from '@mui/material';
 import { palette } from 'constants/';
 import { ScreenType } from 'recoil/atom';
@@ -11,7 +12,8 @@ export const Wrap = styled('div', {
   alignItems: 'center',
   justifyContent: 'center',
   width: '100vw',
-  overflow: 'hidden auto',
+  height: 'calc(100vh - 9.5rem)',
+  overflow: isDesktop ? 'hidden' : 'unset',
   '&& img': { minWidth: type !== 'pc' ? '75vw' : '58rem' },
 }));
 
@@ -47,7 +49,7 @@ export const Logos = styled('img', {
 })<{ type: ScreenType }>(({ type }) => ({
   margin: `${type !== 'pc' ? 2 : 4}rem 0`,
   width: type !== 'pc' ? '75vw' : '58rem',
-  height: `${type !== 'pc' ? 20 : 21.75}rem`,
+  height: type !== 'pc' ? '47.5%' : '21.75rem',
 }));
 
 export const BottomDivider = styled(Divider, {

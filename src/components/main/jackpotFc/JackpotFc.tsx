@@ -28,7 +28,7 @@ const JackpotFc = () => {
   return (
     <CSC.PageWrap>
       {type !== 'mobile' && <CSC.Background {...imageProps} />}
-      <S.Content type={type}>
+      <S.Content>
         <CSC.DummySpace />
         {type === 'mobile' && <S.MobileImage {...imageProps} />}
         {type === 'mobile' && <S.JackpotFcText type={type}>JACKPOT FC</S.JackpotFcText>}

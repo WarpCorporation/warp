@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useImageQuery } from 'lib';
 import { useRecoilValue } from 'recoil';
@@ -11,6 +12,7 @@ import picture04 from 'assets/image/leadership/profile-pic-04.png';
 import picture05 from 'assets/image/leadership/profile-pic-05.png';
 
 const Leadership = () => {
+  const wrapRef = useRef<HTMLDivElement>(null);
   const { i18n, t } = useTranslation();
   const isKorean = i18n.language === 'kr';
   const { type } = useRecoilValue(atom.screen);
@@ -20,10 +22,14 @@ const Leadership = () => {
   ]);
   const title = 'LEADERSHIP';
 
+  useLayoutEffect(() => {
+    wrapRef.current?.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Header title={title} />
-      <S.Wrap type={type}>
+      <S.Wrap type={type} ref={wrapRef}>
         <S.CardWrap>
           <MobileHeader title={title} marginOffset={-48} />
           {leadershipInfo.map(({ nameEn, nameKo, position }, idx) => (

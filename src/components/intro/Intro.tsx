@@ -25,7 +25,7 @@ const Intro = (props: PropsType) => {
     }, 1000);
     setTimeout(() => {
       handlePageChange(false);
-    }, 1500);
+    }, 5000);
   };
 
   const handleKoreanClick = () => {

@@ -6,7 +6,7 @@ import { ScreenType } from 'recoil/atom';
 export const Wrap = styled('div', {
   shouldForwardProp: (prop: string) => !['backgroundColor', 'isMobile'].includes(prop),
 })<{ backgroundColor: string; isMobile: boolean }>(({ backgroundColor, isMobile }) => ({
-  position: 'absolute',
+  position: 'fixed',
   top: 0,
   left: 0,
   display: 'flex',
