@@ -47,7 +47,7 @@ export const Logos = styled('img', {
 })<{ type: ScreenType }>(({ type }) => ({
   margin: `${type !== 'pc' ? 2 : 4}rem 0`,
   width: type !== 'pc' ? '75vw' : '58rem',
-  height: `${type !== 'pc' ? 20 : 21.75}rem`,
+  height: type !== 'pc' ? '47.5%' : '21.75rem',
 }));
 
 export const BottomDivider = styled(Divider, {
