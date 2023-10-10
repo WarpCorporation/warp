@@ -1,7 +1,9 @@
 import { Divider as D, styled } from '@mui/material';
 import { palette } from 'constants/';
 
-export const Wrap = styled('div')({
+export const Wrap = styled('div', {
+  shouldForwardProp: (prop: string) => prop !== 'isTransparent',
+})<{ isTransparent: boolean }>(({ isTransparent }) => ({
   position: 'fixed',
   top: 0,
   left: 0,
@@ -10,9 +12,9 @@ export const Wrap = styled('div')({
   alignItems: 'center',
   width: '100vw',
   height: '100vh',
-  backgroundColor: palette.dark,
+  backgroundColor: isTransparent ? 'transparent' : palette.dark,
   zIndex: 15,
-});
+}));
 
 export const Cover = styled('div')({
   position: 'absolute',

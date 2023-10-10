@@ -43,7 +43,7 @@ const Loading = (props: PropsType) => {
   return (
     <>
       {!animationDone && (
-        <S.Wrap>
+        <S.Wrap isTransparent={!!animationClassName}>
           <S.Cover />
           <S.TopWrap className={animationClassName?.top} />
           <S.LogoWrap className={pathname ? 'logo-loading-animation' : 'logo-for-unloaded'}>
