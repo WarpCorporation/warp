@@ -46,14 +46,16 @@ const Loading = (props: PropsType) => {
 
   return (
     <>
-      <S.Wrap animationDone={animationDone} backgroundColor={backgroundColor}>
-        <S.TopWrap className={animationClassName?.top} />
-        <S.LogoWrap className={pathname ? 'logo-loading-animation' : 'logo-for-unloaded'}>
-          <S.Logo src={logo} alt='logo' />
-        </S.LogoWrap>
-        {pathname && <S.Divider className='divider-loading-animation' />}
-        <S.BottomWrap className={animationClassName?.bottom} />
-      </S.Wrap>
+      {!animationDone && (
+        <S.Wrap backgroundColor={backgroundColor}>
+          <S.TopWrap className={animationClassName?.top} />
+          <S.LogoWrap className={pathname ? 'logo-loading-animation' : 'logo-for-unloaded'}>
+            <S.Logo src={logo} alt='logo' />
+          </S.LogoWrap>
+          {pathname && <S.Divider className='divider-loading-animation' />}
+          <S.BottomWrap className={animationClassName?.bottom} />
+        </S.Wrap>
+      )}
       {children}
     </>
   );

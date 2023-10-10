@@ -2,12 +2,12 @@ import { Divider as D, styled } from '@mui/material';
 import { palette } from 'constants/';
 
 export const Wrap = styled('div', {
-  shouldForwardProp: (prop: string) => !['animationDone', 'backgroundColor'].includes(prop),
-})<{ animationDone: boolean; backgroundColor: string }>(({ animationDone, backgroundColor }) => ({
+  shouldForwardProp: (prop: string) => prop !== 'backgroundColor',
+})<{ backgroundColor: string }>(({ backgroundColor }) => ({
   position: 'absolute',
   top: 0,
   left: 0,
-  display: animationDone ? 'none' : 'flex',
+  display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   width: '101vw',
