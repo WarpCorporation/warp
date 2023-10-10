@@ -2,9 +2,7 @@ import { styled } from '@mui/material';
 import { palette } from 'constants/';
 import { ScreenType } from 'recoil/atom';
 
-export const Content = styled('div', {
-  shouldForwardProp: (prop: string) => prop !== 'type',
-})<{ type: ScreenType }>(({ type }) => ({
+export const Content = styled('div')({
   position: 'relative',
   top: 0,
   left: 0,
@@ -13,8 +11,8 @@ export const Content = styled('div', {
   flexDirection: 'column',
   alignItems: 'center',
   width: '100%',
-  overflow: type === 'mobile' ? 'hidden auto' : 'hidden',
-}));
+  overflow: 'hidden auto',
+});
 
 export const TextWrap = styled('div')({
   display: 'flex',

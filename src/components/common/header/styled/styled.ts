@@ -16,7 +16,7 @@ export const DummySpace = styled('div', {
 export const Content = styled('div', {
   shouldForwardProp: (prop: string) => prop !== 'type',
 })<{ type: ScreenType }>(({ type }) => ({
-  position: 'absolute',
+  position: 'fixed',
   top: 0,
   left: 0,
   display: 'flex',
@@ -25,6 +25,7 @@ export const Content = styled('div', {
   width: '100vw',
   minWidth: screen.minWidth,
   height: `${type !== 'pc' ? 9.5 : 16.5}rem`,
+  minHeight: `${type !== 'pc' ? 9.5 : 16.5}rem`,
   color: palette.white,
   fontSize: '1.5rem',
   fontWeight: 500,

@@ -10,7 +10,6 @@ export const Wrap = styled('div')({
   padding: '1.5rem 0',
   width: '100vw',
   minWidth: screen.minWidth,
-  overflow: 'hidden auto',
   '&& img': { minWidth: '9rem' },
 });
 

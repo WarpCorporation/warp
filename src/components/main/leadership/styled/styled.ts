@@ -11,7 +11,6 @@ export const Wrap = styled('div', {
   padding: `${type !== 'pc' ? 2.5 : 4.5}rem 0`,
   width: '100vw',
   minWidth: screen.minWidth,
-  overflow: 'hidden auto',
 }));
 
 export const CardWrap = styled('div')({

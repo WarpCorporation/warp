@@ -37,7 +37,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Wrap>
           <Content ref={ref}>
-            <GlobalStyles styles={scrollbarDesign} />
+            {width >= 1280 && <GlobalStyles styles={scrollbarDesign} />}
             <Closing shouldClose={shouldClose}>
               <Routes>
                 <Route path='/' element={<Intro handlePageChange={handlePageChange} />} />
@@ -63,8 +63,7 @@ const Content = styled('div')({
   minWidth: screen.minWidth,
   maxWidth: '100vw',
   height: '100%',
-  maxHeight: '100vh',
-  overflow: 'hidden',
+  overflow: 'hidden auto',
 });
 
 const scrollbarDesign = {

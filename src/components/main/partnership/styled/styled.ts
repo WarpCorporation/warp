@@ -11,7 +11,7 @@ export const Wrap = styled('div', {
   alignItems: 'center',
   justifyContent: 'center',
   width: '100vw',
-  overflow: 'hidden auto',
+  height: 'calc(100vh - 9.5rem)',
   '&& img': { minWidth: type !== 'pc' ? '75vw' : '58rem' },
 }));
 

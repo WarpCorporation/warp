@@ -36,7 +36,7 @@ const BrandStory = () => {
   return (
     <CSC.PageWrap ref={ref}>
       {type === 'pc' && <CSC.Background {...imageProps} />}
-      <S.ContentWrap type={type}>
+      <S.ContentWrap>
         <CSC.DummySpace />
         <S.TextWrap pcTextCenter={pcTextCenter} mobileTextCenter={type !== 'pc'}>
           {type !== 'pc' && <S.MobileImage {...imageProps} />}

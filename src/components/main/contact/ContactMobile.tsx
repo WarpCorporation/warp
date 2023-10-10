@@ -11,10 +11,16 @@ const ContactMobile = (props: PropsType) => {
   return (
     <S.MobileWrap>
       {contactKeys.map((key, idx) => (
-        <S.MobileRow key={key}>
-          <S.MobileKey>{key}</S.MobileKey>
-          <S.MobileProp>{contactProps[idx]}</S.MobileProp>
-        </S.MobileRow>
+        <>
+          <S.MobileRow key={key}>
+            <S.MobileKey>{key}</S.MobileKey>
+            <S.MobileProp>{contactProps[idx]}</S.MobileProp>
+          </S.MobileRow>
+          <S.MobileRow key={key}>
+            <S.MobileKey>{key}</S.MobileKey>
+            <S.MobileProp>{contactProps[idx]}</S.MobileProp>
+          </S.MobileRow>
+        </>
       ))}
     </S.MobileWrap>
   );
