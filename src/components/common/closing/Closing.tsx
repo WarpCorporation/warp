@@ -9,6 +9,8 @@ type PropsType = {
 const Closing = (props: PropsType) => {
   const { shouldClose, children } = props;
 
+  if (!shouldClose) return <>{children}</>;
+
   return (
     <>
       {children}
@@ -16,11 +18,11 @@ const Closing = (props: PropsType) => {
         shouldClose={shouldClose}
         isTop
         className={shouldClose ? 'top-closing-animation' : ''}
-      ></CSC.Closing>
+      />
       <CSC.Closing
         shouldClose={shouldClose}
         className={shouldClose ? 'bottom-closing-animation' : ''}
-      ></CSC.Closing>
+      />
     </>
   );
 };
