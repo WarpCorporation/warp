@@ -1,7 +1,5 @@
 import { useState, useLayoutEffect, useEffect, useRef } from 'react';
 import { S } from './styled';
-import { palette } from 'constants/';
-import { getBackgroundColor } from 'util/';
 import logo from 'assets/image/common/logo-white.png';
 
 type PropsType = {
@@ -16,7 +14,6 @@ const Loading = (props: PropsType) => {
     string
   > | null>(null);
   const [animationDone, setAnimationDone] = useState<boolean>(false);
-  const [backgroundColor, setBackgroundColor] = useState<string>(palette.dark);
   const animationTimeoutRef = useRef<NodeJS.Timeout>(null);
 
   useLayoutEffect(() => {
@@ -30,7 +27,6 @@ const Loading = (props: PropsType) => {
       top: 'top-loading-animation',
       bottom: 'bottom-loading-animation',
     });
-    setBackgroundColor(getBackgroundColor(pathname));
     //@ts-expect-error timeout useRef 설정을 위한 타입 체크 skip
     animationTimeoutRef.current = setTimeout(() => {
       setAnimationDone(true);
@@ -47,7 +43,8 @@ const Loading = (props: PropsType) => {
   return (
     <>
       {!animationDone && (
-        <S.Wrap backgroundColor={backgroundColor}>
+        <S.Wrap>
+          <S.Cover />
           <S.TopWrap className={animationClassName?.top} />
           <S.LogoWrap className={pathname ? 'logo-loading-animation' : 'logo-for-unloaded'}>
             <S.Logo src={logo} alt='logo' />

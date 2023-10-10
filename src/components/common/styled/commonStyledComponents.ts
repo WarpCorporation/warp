@@ -39,11 +39,11 @@ export const DummySpace = styled('div')({
 export const Closing = styled('div', {
   shouldForwardProp: (prop: string) => !['shouldClose', 'isTop'].includes(prop),
 })<{ shouldClose: boolean; isTop?: boolean }>(({ shouldClose, isTop }) => ({
-  position: 'absolute',
+  position: 'fixed',
   top: shouldClose ? `${isTop ? 0 : 50}vh` : `${isTop ? -50 : 100}vh`,
   left: 0,
   display: shouldClose ? 'block' : 'none',
-  width: '101vw',
+  width: '100vw',
   height: '50vh',
   backgroundColor: palette.dark,
   overflow: 'hidden',

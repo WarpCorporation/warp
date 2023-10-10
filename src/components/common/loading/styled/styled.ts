@@ -1,19 +1,28 @@
 import { Divider as D, styled } from '@mui/material';
 import { palette } from 'constants/';
 
-export const Wrap = styled('div', {
-  shouldForwardProp: (prop: string) => prop !== 'backgroundColor',
-})<{ backgroundColor: string }>(({ backgroundColor }) => ({
-  position: 'absolute',
+export const Wrap = styled('div')({
+  position: 'fixed',
   top: 0,
   left: 0,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  width: '101vw',
+  width: '100vw',
   height: '100vh',
-  backgroundColor,
-}));
+  backgroundColor: 'transparent',
+  zIndex: 15,
+});
+
+export const Cover = styled('div')({
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100vw',
+  height: '100vh',
+  zIndex: 20,
+  backgroundColor: 'transparent',
+});
 
 export const LogoWrap = styled('div')({
   display: 'flex',

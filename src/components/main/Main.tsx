@@ -1,4 +1,4 @@
-import { Suspense, useState, useEffect } from 'react';
+import { Suspense, useState, useEffect, RefObject } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Intro } from './intro';
@@ -11,11 +11,12 @@ import { Contact } from './contact';
 import { Menu, Loading } from 'components/common';
 
 type PropsType = {
+  wrapRef: RefObject<HTMLDivElement>;
   handlePageChange: (newStatus: boolean) => void;
 };
 
 const Main = (props: PropsType) => {
-  const { handlePageChange } = props;
+  const { wrapRef, handlePageChange } = props;
   const [currentPathname, setCurrentPathname] = useState<string>('');
   const { i18n } = useTranslation();
   const { pathname } = useLocation();
@@ -29,7 +30,8 @@ const Main = (props: PropsType) => {
 
   useEffect(() => {
     setCurrentPathname(pathname);
-  }, [pathname]);
+    wrapRef.current?.scrollTo(0, 0);
+  }, [pathname, wrapRef]);
 
   return (
     <Suspense fallback={<Loading />}>
