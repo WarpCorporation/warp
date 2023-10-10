@@ -43,7 +43,7 @@ export const Closing = styled('div', {
   top: shouldClose ? `${isTop ? 0 : 50}vh` : `${isTop ? -50 : 100}vh`,
   left: 0,
   display: shouldClose ? 'block' : 'none',
-  width: '100vw',
+  width: '101vw',
   height: '50vh',
   backgroundColor: palette.dark,
   overflow: 'hidden',

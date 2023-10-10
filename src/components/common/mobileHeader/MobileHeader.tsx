@@ -11,7 +11,7 @@ const MobileHeader = (props: PropsType) => {
   const { title, marginOffset = 0 } = props;
   const { type } = useRecoilValue(atom.screen);
 
-  if (type !== 'mobile') return <></>;
+  if (type === 'pc') return <></>;
 
   return (
     <S.Wrap marginOffset={marginOffset}>

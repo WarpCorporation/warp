@@ -10,7 +10,7 @@ export const Wrap = styled('div', {
   display: animationDone ? 'none' : 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  width: '100vw',
+  width: '101vw',
   height: '100vh',
   backgroundColor,
 }));

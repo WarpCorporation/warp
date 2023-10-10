@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { isDesktop } from 'react-device-detect';
 import { useSetRecoilState } from 'recoil';
 import { atom } from 'recoil/atom';
 import useResizeObserver from 'use-resize-observer';
@@ -37,7 +38,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Wrap>
           <Content ref={ref}>
-            {width >= 1280 && <GlobalStyles styles={scrollbarDesign} />}
+            {isDesktop && <GlobalStyles styles={scrollbarDesign} />}
             <Closing shouldClose={shouldClose}>
               <Routes>
                 <Route path='/' element={<Intro handlePageChange={handlePageChange} />} />
@@ -63,7 +64,7 @@ const Content = styled('div')({
   minWidth: screen.minWidth,
   maxWidth: '100vw',
   height: '100%',
-  overflow: 'hidden auto',
+  overflow: isDesktop ? 'hidden' : 'hidden auto',
 });
 
 const scrollbarDesign = {

@@ -1,3 +1,4 @@
+import { isDesktop } from 'react-device-detect';
 import { Divider as D, styled } from '@mui/material';
 import { screen, palette } from 'constants/';
 import { ScreenType } from 'recoil/atom';
@@ -10,6 +11,7 @@ export const ContentWrap = styled('div')({
   flexDirection: 'column',
   width: '100vw',
   height: '100vh',
+  overflow: isDesktop ? 'hidden auto' : 'unset',
 });
 
 export const MobileImage = styled('img')({

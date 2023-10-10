@@ -1,3 +1,4 @@
+import { isDesktop } from 'react-device-detect';
 import { Divider, styled } from '@mui/material';
 import { palette } from 'constants/';
 import { ScreenType } from 'recoil/atom';
@@ -12,6 +13,7 @@ export const Wrap = styled('div', {
   justifyContent: 'center',
   width: '100vw',
   height: 'calc(100vh - 9.5rem)',
+  overflow: isDesktop ? 'hidden' : 'unset',
   '&& img': { minWidth: type !== 'pc' ? '75vw' : '58rem' },
 }));
 
