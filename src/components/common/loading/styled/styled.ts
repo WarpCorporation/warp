@@ -10,7 +10,7 @@ export const Wrap = styled('div')({
   alignItems: 'center',
   width: '100vw',
   height: '100vh',
-  backgroundColor: 'transparent',
+  backgroundColor: palette.dark,
   zIndex: 15,
 });
 
