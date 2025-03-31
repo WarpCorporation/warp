@@ -40,6 +40,8 @@ export const DialogContent = styled('div')({
   border: `1px solid ${palette.black}`,
   padding: '1.2rem',
   margin: '0.5rem',
+  textAlign: 'center',
+  wordBreak: 'keep-all',
 });
 
 export const DialogTitle = styled('div')({
@@ -52,7 +54,6 @@ export const DialogTitle = styled('div')({
 export const DialogText = styled('div')({
   display: 'flex',
   justifyContent: 'center',
-  wordBreak: 'keep-all',
   fontSize: '18px',
 });
 
