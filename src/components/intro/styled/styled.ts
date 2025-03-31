@@ -31,3 +31,69 @@ export const LanguageButton = styled('div')({
   '& span': { transition: '250ms' },
   '&:hover': { '& span': { transform: 'scale(1.2)' } },
 });
+
+export const DialogContent = styled('div')({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  border: `1px solid ${palette.black}`,
+  padding: '1.2rem',
+  margin: '0.5rem',
+});
+
+export const DialogTitle = styled('div')({
+  display: 'flex',
+  justifyContent: 'center',
+  marginBottom: '1rem',
+  fontSize: '32px',
+});
+
+export const DialogText = styled('div')({
+  display: 'flex',
+  justifyContent: 'center',
+  wordBreak: 'keep-all',
+  fontSize: '18px',
+});
+
+export const DialogDate = styled('div')({
+  display: 'flex',
+  justifyContent: 'center',
+  marginTop: '1rem',
+  fontSize: '18px',
+  fontWeight: 600,
+});
+
+export const DialogCompany = styled('div')({
+  display: 'flex',
+  justifyContent: 'center',
+  marginTop: '1rem',
+  fontSize: '28px',
+  fontWeight: 600,
+});
+
+export const DialogAddress = styled('div')({
+  display: 'flex',
+  justifyContent: 'center',
+  marginTop: '0.5rem',
+  fontSize: '24px',
+  fontWeight: 200,
+});
+
+export const DialogPresident = styled('div')({
+  display: 'flex',
+  justifyContent: 'center',
+  marginTop: '0.5rem',
+  fontSize: '28px',
+  fontWeight: 600,
+});
+
+export const ButtonWrap = styled('div')({
+  display: 'flex',
+  justifyContent: 'flex-end',
+  width: '100%',
+  '& button': {
+    padding: '0.25rem 0',
+    color: palette.black,
+  },
+});
