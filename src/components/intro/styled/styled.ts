@@ -48,20 +48,21 @@ export const DialogTitle = styled('div')({
   display: 'flex',
   justifyContent: 'center',
   marginBottom: '1rem',
-  fontSize: '32px',
+  fontSize: '26px',
+  whiteSpace: 'break-spaces',
 });
 
 export const DialogText = styled('div')({
   display: 'flex',
   justifyContent: 'center',
-  fontSize: '18px',
+  fontSize: '16px',
 });
 
 export const DialogDate = styled('div')({
   display: 'flex',
   justifyContent: 'center',
   marginTop: '1rem',
-  fontSize: '18px',
+  fontSize: '16px',
   fontWeight: 600,
 });
 
@@ -69,7 +70,7 @@ export const DialogCompany = styled('div')({
   display: 'flex',
   justifyContent: 'center',
   marginTop: '1rem',
-  fontSize: '28px',
+  fontSize: '24px',
   fontWeight: 600,
 });
 
@@ -77,7 +78,7 @@ export const DialogAddress = styled('div')({
   display: 'flex',
   justifyContent: 'center',
   marginTop: '0.5rem',
-  fontSize: '24px',
+  fontSize: '20px',
   fontWeight: 200,
 });
 
@@ -85,7 +86,7 @@ export const DialogPresident = styled('div')({
   display: 'flex',
   justifyContent: 'center',
   marginTop: '0.5rem',
-  fontSize: '28px',
+  fontSize: '24px',
   fontWeight: 600,
 });
 
